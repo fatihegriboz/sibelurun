@@ -7,36 +7,42 @@ import Social from '../components/social'
 import A from '../components/a'
 import PageTransition from '../components/page-transition'
 import PageTitle from '../components/page-title'
+import SiteConfig from '../site.config'
 function Contact() {
   return (
-    <PageTransition>
-      <Layout>
-        <Container>
-          <Header />
-          <PageTitle>İletişim</PageTitle>
-          <div className="c-large mt-20">
-            <div className="grid sm:grid-cols-2 gap-20">
-              <div>
-                <Social />
-                <p className="pt-6">
-                  ‭+90 (212) 951 05 75‬ | sibel@sibelurun.com
-                </p>
-              </div>
-              <div style={{ position: 'relative' }}>
-                <NextImage
-                  src="/static/images/sibelurun.png"
-                  alt="Sibel Ürün"
-                  width={640}
-                  height={840}
-                  layout="responsive"
-                  // objectFit="cover"
-                />
+    <>
+      <Head>
+        <title>İletişim | {SiteConfig.title}</title>
+      </Head>
+      <PageTransition>
+        <Layout>
+          <Container>
+            <Header />
+            <PageTitle>İletişim</PageTitle>
+            <div className="c-large mt-20">
+              <div className="grid sm:grid-cols-2 gap-20">
+                <div>
+                  <Social />
+                  <p className="pt-6">
+                    ‭+90 (212) 951 05 75‬ | sibel@sibelurun.com
+                  </p>
+                </div>
+                <div style={{ position: 'relative' }}>
+                  <NextImage
+                    src="/static/images/sibelurun.png"
+                    alt="Sibel Ürün"
+                    width={640}
+                    height={840}
+                    layout="responsive"
+                    // objectFit="cover"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </Container>
-      </Layout>
-    </PageTransition>
+          </Container>
+        </Layout>
+      </PageTransition>
+    </>
   )
 }
 

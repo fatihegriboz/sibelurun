@@ -8,7 +8,7 @@ import Layout from '../components/layout'
 import MoreStories from '../components/more-stories'
 import { request } from '../lib/datocms'
 import { metaTagsFragment, responsiveImageFragment } from '../lib/fragments'
-
+import SiteConfig from '../site.config'
 export async function getStaticProps({ preview }) {
   const graphqlRequest = {
     query: `
@@ -76,6 +76,9 @@ export default function Index({ subscription }) {
 
   return (
     <>
+      <Head>
+        <title>Blog | {SiteConfig.title}</title>
+      </Head>
       <PageTransition>
         <Layout preview={subscription.preview}>
           <Head>{renderMetaTags(metaTags)}</Head>

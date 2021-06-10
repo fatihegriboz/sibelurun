@@ -10,6 +10,7 @@ import PostHeader from '../../components/post-header'
 import SectionSeparator from '../../components/section-separator'
 import { request } from '../../lib/datocms'
 import { metaTagsFragment, responsiveImageFragment } from '../../lib/fragments'
+import SiteConfig from '../../site.config'
 
 export async function getStaticPaths() {
   const data = await request({ query: `{ allPosts { slug } }` })
@@ -118,24 +119,29 @@ export default function Post({ subscription, preview }) {
   const metaTags = post.seo.concat(site.favicon)
 
   return (
-    <PageTransition>
-      <Layout preview={preview}>
-        <Head>{renderMetaTags(metaTags)}</Head>
-        <Container>
-          <Header />
-          <article>
-            <PostHeader
-              title={post.title}
-              coverImage={post.coverImage}
-              date={post.date}
-              author={post.author}
-            />
-            <PostBody content={post.content} />
-          </article>
-          <SectionSeparator />
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
-      </Layout>
-    </PageTransition>
+    <>
+      <Head>
+        <title>Blog | {SiteConfig.title}</title>
+      </Head>
+      <PageTransition>
+        <Layout preview={preview}>
+          <Head>{renderMetaTags(metaTags)}</Head>
+          <Container>
+            <Header />
+            <article>
+              <PostHeader
+                title={post.title}
+                coverImage={post.coverImage}
+                date={post.date}
+                author={post.author}
+              />
+              <PostBody content={post.content} />
+            </article>
+            <SectionSeparator />
+            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          </Container>
+        </Layout>
+      </PageTransition>
+    </>
   )
 }

@@ -10,23 +10,28 @@ import { options } from '../constants/options'
 import { SRLWrapper } from 'simple-react-lightbox'
 import PageTransition from '../components/page-transition'
 import PageTitle from '../components/page-title'
+import SiteConfig from '../site.config'
 function Projeler({ data }) {
   return (
-    <PageTransition>
-      <Layout>
-        <Container>
-          <Header />
-          {/* <div className="c-small">
+    <>
+      <Head>
+        <title>Projeler | {SiteConfig.title}</title>
+      </Head>
+      <PageTransition>
+        <Layout>
+          <Container>
+            <Header />
+            {/* <div className="c-small">
             
           </div> */}
-          <PageTitle>Mimari</PageTitle>
-          <div className="c-large mt-20">
-            <SRLWrapper options={options}>
-              <div className="grid grid-cols-6 gap-2">
-                {data.map((item) => {
-                  return (
-                    <div key={item.Id}>
-                      {/* <A href={item.Url} blank>
+            <PageTitle>Mimari</PageTitle>
+            <div className="c-large mt-20">
+              <SRLWrapper options={options}>
+                <div className="grid grid-cols-6 gap-2">
+                  {data.map((item) => {
+                    return (
+                      <div key={item.Id}>
+                        {/* <A href={item.Url} blank>
                     <NextImage
                       src={item.Photo[0].thumbnails.full.url}
                       alt={item.Name}
@@ -39,19 +44,19 @@ function Projeler({ data }) {
                     />
                   </A> */}
 
-                      <a href={item.Photo[0].thumbnails.full.url}>
-                        <NextImage
-                          src={item.Photo[0].thumbnails.full.url}
-                          alt={item.Name}
-                          width={30}
-                          height={20}
-                          layout="responsive"
-                          objectFit="cover"
-                          srl_gallery_image="true"
-                        />
-                      </a>
+                        <a href={item.Photo[0].thumbnails.full.url}>
+                          <NextImage
+                            src={item.Photo[0].thumbnails.full.url}
+                            alt={item.Name}
+                            width={30}
+                            height={20}
+                            layout="responsive"
+                            objectFit="cover"
+                            srl_gallery_image="true"
+                          />
+                        </a>
 
-                      {/* <div className="mt-2">
+                        {/* <div className="mt-2">
                       <h3 className="font-bold text-highlight">
                         <A href={item.Url} blank>
                           {item.Name}
@@ -63,15 +68,16 @@ function Projeler({ data }) {
                       <span>{item.Description}</span>
                     </div>
                     </div> */}
-                    </div>
-                  )
-                })}
-              </div>
-            </SRLWrapper>
-          </div>
-        </Container>
-      </Layout>
-    </PageTransition>
+                      </div>
+                    )
+                  })}
+                </div>
+              </SRLWrapper>
+            </div>
+          </Container>
+        </Layout>
+      </PageTransition>
+    </>
   )
 }
 
