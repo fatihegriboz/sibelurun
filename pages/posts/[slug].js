@@ -120,12 +120,14 @@ export default function Post({ subscription, preview }) {
 
   return (
     <>
-      <Head>
-        <title>Blog | {SiteConfig.title}</title>
-      </Head>
       <PageTransition>
         <Layout preview={preview}>
           <Head>{renderMetaTags(metaTags)}</Head>
+          <Head>
+            <title>
+              {post.title} | Blog | {SiteConfig.title}
+            </title>
+          </Head>
           <Container>
             <Header />
             <article>

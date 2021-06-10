@@ -76,12 +76,12 @@ export default function Index({ subscription }) {
 
   return (
     <>
-      <Head>
-        <title>Blog | {SiteConfig.title}</title>
-      </Head>
       <PageTransition>
         <Layout preview={subscription.preview}>
           <Head>{renderMetaTags(metaTags)}</Head>
+          <Head>
+            <title>Blog | {SiteConfig.title}</title>
+          </Head>
           <Container>
             <Intro />
             {heroPost && (

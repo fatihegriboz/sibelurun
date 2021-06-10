@@ -80,6 +80,9 @@ export default function Index({ subscription }) {
       <PageTransition>
         <Layout preview={subscription.preview}>
           <Head>{renderMetaTags(metaTags)}</Head>
+          <Head>
+            <title>İç Mimar Sibel Ürün</title>
+          </Head>
           <Container>
             <Intro />
             <div className="relative">
