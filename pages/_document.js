@@ -24,14 +24,9 @@ export default class MyDocument extends Document {
           sizes="16x16"
           type="image/png"
         />
-        <link
-          color="#ffffff"
-          href="/static/icons/icon-safari-pinned-tab.svg"
-          rel="mask-icon"
-        />
         <meta content="#ffffff" name="theme-color" />
         <meta content="#ffffff" name="msapplication-TileColor" />
-
+        {/* end pwa */}
         <body>
           <Main />
           <NextScript />
