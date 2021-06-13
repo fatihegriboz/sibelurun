@@ -3,3 +3,13 @@
 @tailwind components;
 /* purgecss end ignore */
 @tailwind utilities;
+
+p{
+  margin-bottom: 10px;
+}
+p > a{
+  color: red;
+}
+p > a:hover{
+  text-decoration: underline;
+}
