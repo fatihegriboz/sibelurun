@@ -31,7 +31,7 @@ export default function Header() {
           </Link>
         </li>
         <li>
-          <Link href="/once-sonra/">
+          <Link href="/projeler/once-sonra/">
             <a>Önce Sonra</a>
           </Link>
         </li>

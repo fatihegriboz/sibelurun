@@ -103,11 +103,12 @@ export default function Index({ subscription }) {
                   viewBox="0 0 1000 99"
                   fill="#f7f4ed"
                   preserveAspectRatio="none"
-                  height="auto"
                   width="200%"
+                  height="100px"
                   style={{
                     maxWidth: '200%',
                     width: '200%',
+                    height: 'auto',
                     transform: 'rotateX(180deg) translateX(-10%)'
                   }}
                 >

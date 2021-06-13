@@ -1,5 +1,5 @@
-import Link from "next/link";
-import Container from "./container";
+import Link from 'next/link'
+import Container from './container'
 
 export default function Footer() {
   return (
@@ -9,8 +9,8 @@ export default function Footer() {
           {/* <h3 className="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
             Sibel Ürün®
           </h3> */}
-          <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/3">
-            <h3 className="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
+          <div className="">
+            <h3 className="text-2xl md:text-2xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8">
               Sibel Ürün®
             </h3>
           </div>
@@ -50,7 +50,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/once-sonra/">
+                <Link href="/projeler/once-sonra/">
                   <a>Önce Sonra</a>
                 </Link>
               </li>
@@ -65,5 +65,5 @@ export default function Footer() {
         <div>© 2021 Sibel Ürün®. Tüm Hakları Saklıdır.</div>
       </Container>
     </footer>
-  );
+  )
 }

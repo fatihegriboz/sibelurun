@@ -27,16 +27,6 @@ function Contact() {
                     ‭+90 (212) 951 05 75‬ | sibel@sibelurun.com
                   </p>
                 </div>
-                <div style={{ position: 'relative' }}>
-                  <NextImage
-                    src="/static/images/sibelurun.png"
-                    alt="Sibel Ürün"
-                    width={640}
-                    height={840}
-                    layout="responsive"
-                    // objectFit="cover"
-                  />
-                </div>
               </div>
             </div>
           </Container>
