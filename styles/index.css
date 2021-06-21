@@ -17,13 +17,13 @@
     
     /* background: url("https://images.pexels.com/photos/2414036/pexels-photo-2414036.jpeg?cs=srgb&dl=pexels-matheus-viana-2414036.jpg&fm=jpg") */
   }
-  p{
+  .richtext p{
     margin-bottom: 10px;
   }
-  p > a{
+  .richtext p > a{
     color: red;
   }
-  p > a:hover{
+  .richtext p > a:hover{
     text-decoration: underline;
   }
   

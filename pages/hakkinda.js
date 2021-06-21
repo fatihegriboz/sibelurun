@@ -35,6 +35,7 @@ function About({ data }) {
               }
             >
               <div
+                className="richtext"
                 dangerouslySetInnerHTML={{
                   __html: marked(data[0].Content)
                 }}
