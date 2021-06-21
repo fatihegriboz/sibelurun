@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
 import NextImage from 'next/image'
 import PageTransition from '../components/page-transition'
 import { renderMetaTags, useQuerySubscription } from 'react-datocms'
@@ -91,16 +92,16 @@ export default function Index({ subscription, airtabledata }) {
           <Container>
             {/* <Intro /> */}
             <div className="text-center">
-              <p className="text-3xl pb-52">
-                "Tasarım; estetik, deneyimsel ve duygusal olarak <br></br>
-                hayatımzın iyileştirilmesiyle ilgilidir..."
+              <p className="text-3xl font-serif pb-52">
+                " Tasarım; estetik, deneyimsel ve duygusal olarak <br></br>
+                hayatımzın iyileştirilmesiyle ilgilidir... "
               </p>
             </div>
           </Container>
           <div style={{ background: '#f4f1eb' }}>
             <Container>
               <div className="grid md:grid-cols-2 gap-4">
-                <div className="relative max-w-full">
+                <div className="relative max-w-full order-2 md:order-1">
                   <NextImage
                     src="/static/images/su.jpg"
                     alt="Sibel Ürün"
@@ -135,8 +136,8 @@ export default function Index({ subscription, airtabledata }) {
               </div> */}
                 </div>
 
-                <div className="flex flex-col justify-center text-gray-800 text-xl">
-                  <p>
+                <div className="order-1 md:order-2 flex flex-col justify-center text-gray-800 font-serif text-xl">
+                  <p className="pt-10">
                     20 yıldır iş yaşamında faal olan Sibel Ürün Bursa’da doğdu,
                     orta öğretimini Bursa Anadolu Lisesinde tamamlayarak,
                     Bilkent Üniversitesi İç Mimari ve Çevre tasarımı bölümünden
@@ -153,15 +154,32 @@ export default function Index({ subscription, airtabledata }) {
                     2000 yılından itibaren de mesleki çalışmalarını sahibi
                     olduğu Ürün Mimarlık şirketinde sürdürmektedir.
                   </p>
+                  <p className="mt-5 mb-10 text-center md:text-left">
+                    <Link href="/hakkinda">
+                      <a className="bg-transparent text-sm hover:bg-brand-1 text-gray-700 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
+                        Sibel Ürün hakkında
+                      </a>
+                    </Link>
+                  </p>
                 </div>
               </div>
             </Container>
           </div>
 
-          <div className="grid grid-cols-2 gap-2">
-            <h4 className="pt-48 pl-20 mb-8 text-2xl md:text-4xl font-bold tracking-tighter leading-tight">
-              Tasarım ve Çözümler
-            </h4>
+          <div className="grid md:grid-cols-2 gap-5 mb-10">
+            <div className="flex flex-col justify-center items-center text-center px-10 py-10">
+              <h4 className="mb-3 text-2xl font-bold">Tasarım ve Çözümler</h4>
+              <p className="text-xl font-serif italic">
+                " Her mekan, kişinin içindeki tutkusunu yansıtır... "
+              </p>
+              <p className="mt-10">
+                <Link href="/projeler">
+                  <a className="bg-transparent text-sm hover:bg-brand-1 text-gray-700 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
+                    Projeler
+                  </a>
+                </Link>
+              </p>
+            </div>
             {airtabledata.map((item) => {
               return (
                 <div key={item.Id}>

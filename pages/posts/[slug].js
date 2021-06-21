@@ -129,7 +129,6 @@ export default function Post({ subscription, preview }) {
             </title>
           </Head>
           <Container>
-            <Header />
             <article>
               <PostHeader
                 title={post.title}
