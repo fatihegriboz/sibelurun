@@ -11,7 +11,7 @@ import PageTransition from '../../components/page-transition'
 import PageTitle from '../../components/page-title'
 import SiteConfig from '../../site.config'
 
-function Aksesuar({ data }) {
+function Aksesuar({ airtabledata }) {
   return (
     <>
       <Head>
@@ -19,34 +19,35 @@ function Aksesuar({ data }) {
       </Head>
       <PageTransition>
         <Layout>
-          <Container>
-            <Header />
+          <Container cname="col-sm">
             <PageTitle>Aksesuar</PageTitle>
-            <div className="c-large mt-20">
-              <SRLWrapper options={options}>
-                <div className="grid grid-cols-6 gap-2">
-                  {data.map((item) => {
-                    return (
-                      <div key={item.Id}>
-                        {item.Photo && (
-                          <a href={item.Photo[0].thumbnails.full.url}>
-                            <NextImage
-                              src={item.Photo[0].thumbnails.large.url}
-                              alt={item.Name}
-                              width={120}
-                              height={80}
-                              layout="responsive"
-                              objectFit="cover"
-                              srl_gallery_image="true"
-                            />
-                          </a>
-                        )}
-                      </div>
-                    )
-                  })}
-                </div>
-              </SRLWrapper>
-            </div>
+          </Container>
+          <Container>
+            <SRLWrapper options={options}>
+              <div className="grid grid-cols-6 gap-2">
+                {airtabledata.map((item) => {
+                  return (
+                    <div key={item.Id}>
+                      {item.Photo && (
+                        <a href={item.Photo[0].thumbnails.full.url}>
+                          <NextImage
+                            src={item.Photo[0].thumbnails.large.url}
+                            alt={item.Name}
+                            width={120}
+                            height={80}
+                            layout="responsive"
+                            objectFit="cover"
+                            placeholder="blur"
+                            blurDataURL={item.Photo[0].thumbnails.small.url}
+                            srl_gallery_image="true"
+                          />
+                        </a>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            </SRLWrapper>
           </Container>
         </Layout>
       </PageTransition>
@@ -55,11 +56,11 @@ function Aksesuar({ data }) {
 }
 
 export async function getStaticProps() {
-  const data = await getTable('Aksesuar')
+  const airtabledata = await getTable('Aksesuar')
 
   return {
     props: {
-      data
+      airtabledata
     },
     revalidate: 600
   }

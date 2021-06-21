@@ -1,8 +1,10 @@
+import React from 'react'
 import Head from 'next/head'
 import NextImage from 'next/image'
 import PageTransition from '../components/page-transition'
 import { renderMetaTags, useQuerySubscription } from 'react-datocms'
 import Container from '../components/container'
+import { getTable } from '../lib/airtable'
 import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
@@ -10,7 +12,9 @@ import MoreStories from '../components/more-stories'
 import { request } from '../lib/datocms'
 import { metaTagsFragment, responsiveImageFragment } from '../lib/fragments'
 
-export async function getStaticProps({ preview }) {
+export const getStaticProps = async ({ preview }) => {
+  const airtabledata = await getTable('Home Slider 01')
+  // export async function getStaticProps({ preview }) {
   const graphqlRequest = {
     query: `
       {
@@ -51,6 +55,7 @@ export async function getStaticProps({ preview }) {
 
   return {
     props: {
+      airtabledata,
       subscription: preview
         ? {
             ...graphqlRequest,
@@ -66,7 +71,7 @@ export async function getStaticProps({ preview }) {
   }
 }
 
-export default function Index({ subscription }) {
+export default function Index({ subscription, airtabledata }) {
   const {
     data: { allPosts, site, blog }
   } = useQuerySubscription(subscription)
@@ -84,24 +89,34 @@ export default function Index({ subscription }) {
             <title>İç Mimar Sibel Ürün</title>
           </Head>
           <Container>
-            <Intro />
-            <div className="relative">
-              <NextImage
-                src="/static/images/sibel-urun-cover.jpg"
-                alt="Sibel Ürün"
-                width={1200}
-                height={630}
-                layout="responsive"
-                // objectFit="cover"
-              />
-              <div
+            {/* <Intro /> */}
+            <div className="text-center">
+              <p className="text-3xl pb-52">
+                "Tasarım; estetik, deneyimsel ve duygusal olarak <br></br>
+                hayatımzın iyileştirilmesiyle ilgilidir..."
+              </p>
+            </div>
+          </Container>
+          <div style={{ background: '#f4f1eb' }}>
+            <Container>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="relative max-w-full">
+                  <NextImage
+                    src="/static/images/su.jpg"
+                    alt="Sibel Ürün"
+                    width={600}
+                    height={600}
+                    layout="responsive"
+                    // objectFit="cover"
+                  />
+                  {/* <div
                 className="absolute w-full left-0 right-0"
                 style={{ bottom: '-5px' }}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 1000 99"
-                  fill="#f7f4ed"
+                  fill="#cec4bc"
                   preserveAspectRatio="none"
                   width="200%"
                   height="100px"
@@ -117,13 +132,60 @@ export default function Index({ subscription }) {
                     transform="translate(0 0.04)"
                   ></path>
                 </svg>
-              </div>
-            </div>
-          </Container>
+              </div> */}
+                </div>
 
-          <div style={{ background: '#f7f4ed' }}>
+                <div className="flex flex-col justify-center text-gray-800 text-xl">
+                  <p>
+                    20 yıldır iş yaşamında faal olan Sibel Ürün Bursa’da doğdu,
+                    orta öğretimini Bursa Anadolu Lisesinde tamamlayarak,
+                    Bilkent Üniversitesi İç Mimari ve Çevre tasarımı bölümünden
+                    mezun oldu.
+                  </p>
+                  <p>
+                    Yüksek Lisansını Yeditepe Üniversitesinde Art Management
+                    üzerine yaptı, “Kurumlar Bağlamında Sanat Finans İlişkileri
+                    ve Türkiye” isimli tez çalışmasını yayınladı. Marmara
+                    Üniversitesi Avrupa Birliği Enstitüsü Doktora Programına
+                    kabul edildi.
+                  </p>
+                  <p>
+                    2000 yılından itibaren de mesleki çalışmalarını sahibi
+                    olduğu Ürün Mimarlık şirketinde sürdürmektedir.
+                  </p>
+                </div>
+              </div>
+            </Container>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2">
+            <h4 className="pt-48 pl-20 mb-8 text-2xl md:text-4xl font-bold tracking-tighter leading-tight">
+              Tasarım ve Çözümler
+            </h4>
+            {airtabledata.map((item) => {
+              return (
+                <div key={item.Id}>
+                  {item.Photo && (
+                    <NextImage
+                      src={item.Photo[0].thumbnails.large.url}
+                      alt={item.Name}
+                      width={120}
+                      height={80}
+                      layout="responsive"
+                      objectFit="cover"
+                      placeholder="blur"
+                      blurDataURL={item.Photo[0].thumbnails.small.url}
+                      srl_gallery_image="true"
+                    />
+                  )}
+                </div>
+              )
+            })}
+          </div>
+
+          {/* <div style={{ background: '#cec4bc' }}>
             <div className="container mx-auto px-5 mb-10">
-              <p className="p-10 text-gray-700">
+              <p className="pt-10 pb-10 text-gray-800 lg:pl-50 lg:pr-50">
                 20 yıldır iş yaşamında faal olan Sibel Ürün Bursa’da doğdu, orta
                 öğretimini Bursa Anadolu Lisesinde tamamlayarak, Bilkent
                 Üniversitesi İç Mimari ve Çevre tasarımı bölümünden mezun oldu.
@@ -135,7 +197,8 @@ export default function Index({ subscription }) {
                 şirketinde sürdürmektedir.
               </p>
             </div>
-          </div>
+          </div> */}
+
           <Container>
             {/* {heroPost && (
             <HeroPost

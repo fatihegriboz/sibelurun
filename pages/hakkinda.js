@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import NextImage from 'next/image'
 import Container from '../components/container'
-import Header from '../components/header'
 import Layout from '../components/layout'
 import A from '../components/a'
 import { getTable } from '../lib/airtable'
@@ -24,25 +23,25 @@ function About({ data }) {
       </Head>
       <PageTransition>
         <Layout>
-          <Container>
-            <Header />
+          <Container cname="col-sm">
             <PageTitle>{data[0].Name}</PageTitle>
-            <div className="c-large mt-20">
-              <div
-                className="grid sm:grid-cols-2 gap-10"
-                styles={
-                  {
-                    // background: `url(${data[0].Photo[0].thumbnails.large.url})`
-                  }
-                }
-              >
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: marked(data[0].Content)
-                  }}
-                />
 
-                <div>
+            <div
+              className="grid sm:grid-cols-1 gap-0"
+              styles={
+                {
+                  // background: `url(${data[0].Photo[0].thumbnails.large.url})`
+                }
+              }
+            >
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: marked(data[0].Content)
+                }}
+              />
+
+              <div>
+                <div className="max-w-xs m-auto">
                   <NextImage
                     style={{ position: 'relative' }}
                     src={data[0].Photo[0].thumbnails.large.url}
@@ -50,6 +49,8 @@ function About({ data }) {
                     width={data[0].Photo[0].thumbnails.large.width}
                     height={data[0].Photo[0].thumbnails.large.height}
                     layout="responsive"
+                    placeholder="blur"
+                    blurDataURL={data[0].Photo[0].thumbnails.small.url}
                     // objectFit="cover"
                   />
                 </div>

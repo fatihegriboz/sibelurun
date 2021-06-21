@@ -2,7 +2,6 @@ import Head from 'next/head'
 import NextImage from 'next/image'
 import Link from 'next/link'
 import Container from '../components/container'
-import Header from '../components/header'
 import Layout from '../components/layout'
 import A from '../components/a'
 
@@ -17,8 +16,7 @@ function Projeler() {
       </Head>
       <PageTransition>
         <Layout>
-          <Container>
-            <Header />
+          <Container cname="col-sm">
             <PageTitle>Projeler</PageTitle>
 
             <div className="text-xl md:text-2xl text-gray-600">
@@ -34,6 +32,9 @@ function Projeler() {
                 </Link>
                 <Link href="/projeler/once-sonra">
                   <a>Önce Sonra</a>
+                </Link>
+                <Link href="/projeler/ticari-alanlar">
+                  <a>Ticari Alanlar</a>
                 </Link>
               </div>
             </div>

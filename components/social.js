@@ -11,7 +11,7 @@ function SocialButton({ href, children }) {
       href={href}
       blank
       className="
-      flex items-center p-3 bg-gray-200 text-gray-600 rounded-full transition-colors
+      flex items-center p-3 bg-accent-1 text-gray-600 rounded-full transition-colors
       hover:bg-opacity-75"
     >
       {children}
@@ -22,9 +22,9 @@ function SocialButton({ href, children }) {
 function Social() {
   return (
     <div className="flex items-center space-x-3">
-      <SocialButton href={'mailto:' + SiteConfig.author.email}>
+      {/* <SocialButton href={'mailto:' + SiteConfig.author.email}>
         <span className="mx-2 font-semibold">Eposta</span>
-      </SocialButton>
+      </SocialButton> */}
       <SocialButton href={SiteConfig.social.instagram}>
         <IconInstagram />
       </SocialButton>
