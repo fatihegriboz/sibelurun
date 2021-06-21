@@ -62,7 +62,7 @@ export async function getStaticProps() {
     props: {
       airtabledata
     },
-    revalidate: 600
+    revalidate: 6000
   }
 }
 

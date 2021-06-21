@@ -17,11 +17,17 @@ export default function Header() {
       <div className="sitelogo">
         <Link href="/">
           <a>
-            <NextImage
+            {/* <NextImage
               src="/static/images/sibelurun-logo.png"
               alt="Sibel Ürün"
               width={99}
               height={99}
+            /> */}
+            <NextImage
+              src="/static/images/sibelurun-logo-text.png"
+              alt="Sibel Ürün"
+              width={160}
+              height={101}
             />
           </a>
         </Link>
@@ -107,7 +113,7 @@ export default function Header() {
       <style jsx>{`
         html,
         body {
-          overflow: ${hamburgerOpen ? 'auto' : 'hidden'};
+          border-top: ${hamburgerOpen ? '10px solid red' : '10px solid blue '};
         }
         .navigation {
           width: 100%;
@@ -119,7 +125,7 @@ export default function Header() {
           flex-wrap: wrap;
           float: right;
           margin: 0px;
-          padding: 0px;
+          padding: 200px 0 0 0;
           overflow: hidden;
         }
         .hamburger {
@@ -133,7 +139,7 @@ export default function Header() {
         }
 
         .navigation .ul {
-          display: ${hamburgerOpen ? 'inline' : 'none'};
+          display: ${hamburgerOpen ? 'flex' : 'none'};
           background-color: #e2e1df;
           height: 100vh;
           width: 100vw;

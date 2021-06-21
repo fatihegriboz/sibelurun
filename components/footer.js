@@ -5,7 +5,22 @@ import Social from './social'
 
 export default function Footer() {
   return (
-    <footer className="bg-accent-1 border-t border-accent-2">
+    <footer className="bg-accent-1">
+      {/* border-t border-accent-2 */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1000 99"
+        preserveAspectRatio="none"
+        width="1000"
+        height="99"
+        fill="white"
+        className="footer-wave"
+      >
+        <path
+          d="M526.35,17.11C607.41,28.38,687,48.17,768.06,59.5A1149.19,1149.19,0,0,0,1000,68.07V0H0V99C155.18,13.84,347.42-7.77,526.35,17.11Z"
+          transform="translate(0 0.04)"
+        ></path>
+      </svg>
       <Container>
         <div className="py-10 flex flex-col lg:flex-row justify-around">
           <div>
@@ -74,11 +89,17 @@ export default function Footer() {
         </div>
         <div className="flex flex-col text-sm items-center">
           <NextImage
+            src="/static/images/sibelurun-logo.png"
+            alt="Sibel Ürün"
+            width={140}
+            height={140}
+          />
+          {/* <NextImage
             src="/static/images/sibelurun-logo-text.png"
             alt="Sibel Ürün"
-            width={240}
-            height={124}
-          />
+            width={260}
+            height={164}
+          /> */}
           <p className="text-brand-2 p-10">
             © 2021 Sibel Ürün®. Tüm Hakları Saklıdır.
           </p>
