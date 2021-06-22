@@ -6,7 +6,7 @@ import Social from './social'
 export default function Footer() {
   return (
     <>
-      <div
+      {/* <div
         style={{
           display: 'flex',
           flexDirection: 'column',
@@ -118,14 +118,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* <NextImage
-          style={{ position: 'absolute' }}
-          src="http://www.urunmimarlik.com/img/logo.png"
-          alt="Ürün Mimarlık"
-          width={50}
-          height={50}
-        /> */}
-      </div>
+      </div> */}
 
       <footer className="bg-accent-1 border-t border-accent-2">
         {/* <svg
