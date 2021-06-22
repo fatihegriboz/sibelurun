@@ -21,8 +21,6 @@ export const getStaticProps = async ({ preview }) => {
   const airtabledata = await getTable('Home Slider Projeler')
   const airtabledataOS = await getTable('Home Slider Once Sonra')
   
-  const deviceType = "desktop";
-  
   // export async function getStaticProps({ preview }) {
   const graphqlRequest = {
     query: `
@@ -83,7 +81,7 @@ export const getStaticProps = async ({ preview }) => {
   }
 }
 
-export default function Index({ subscription, airtabledata, airtabledataOS, deviceType }) {
+export default function Index({ subscription, airtabledata, airtabledataOS }) {
   const {
     data: { allPosts, site, blog }
   } = useQuerySubscription(subscription)
@@ -268,7 +266,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS, devi
                 " 4 ayda hayallerine kavuştular... "
               </p>
             </div>
-            <Carousel responsive={responsive} ssr={true} deviceType={deviceType}>
+            <Carousel responsive={responsive} ssr={false}>
               {airtabledataOS.map((item) => {
                 return (
                   <div key={item.Id}>
