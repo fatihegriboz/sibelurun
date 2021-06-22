@@ -263,7 +263,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                 " 4 ayda hayallerine kavuştular... "
               </p>
             </div>
-            <Carousel responsive={responsive} ssr={true} deviceType={"deviceType"}>
+            <Carousel responsive={responsive} ssr={true} deviceType="desktop">
               {airtabledataOS.map((item) => {
                 return (
                   <div key={item.Id}>
