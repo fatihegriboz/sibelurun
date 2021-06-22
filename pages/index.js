@@ -13,8 +13,12 @@ import MoreStories from '../components/more-stories'
 import { request } from '../lib/datocms'
 import { metaTagsFragment, responsiveImageFragment } from '../lib/fragments'
 
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
+
 export const getStaticProps = async ({ preview }) => {
-  const airtabledata = await getTable('Home Slider 01')
+  const airtabledata = await getTable('Home Slider Projeler')
+  const airtabledataOS = await getTable('Home Slider Once Sonra')
   // export async function getStaticProps({ preview }) {
   const graphqlRequest = {
     query: `
@@ -57,6 +61,7 @@ export const getStaticProps = async ({ preview }) => {
   return {
     props: {
       airtabledata,
+      airtabledataOS,
       subscription: preview
         ? {
             ...graphqlRequest,
@@ -73,7 +78,7 @@ export const getStaticProps = async ({ preview }) => {
   }
 }
 
-export default function Index({ subscription, airtabledata }) {
+export default function Index({ subscription, airtabledata, airtabledataOS }) {
   const {
     data: { allPosts, site, blog }
   } = useQuerySubscription(subscription)
@@ -81,7 +86,24 @@ export default function Index({ subscription, airtabledata }) {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(0, 3)
   const metaTags = blog.seo.concat(site.favicon)
-
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 1
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  }
   return (
     <>
       <PageTransition>
@@ -133,7 +155,7 @@ export default function Index({ subscription, airtabledata }) {
             </svg>
             <section className="px-5 py-5 ">
               <div className="grid md:grid-cols-2 gap-6 rounded-l-2xl overflow-hidden">
-                <div className="hover-zoom-img relative max-w-full order-2 md:order-1 bg-accent-2">
+                <div className="hover-zoom-img relative max-w-full bg-accent-2">
                   <NextImage
                     src="/static/images/su.jpg"
                     alt="Sibel Ürün"
@@ -169,7 +191,7 @@ export default function Index({ subscription, airtabledata }) {
               </div> */}
                 </div>
 
-                <div className="pr-10 order-1 md:order-2 flex flex-col justify-center text-gray-800 font-serif text-lg border-t border-r border-b border-accent-2 rounded-r-2xl overflow-hidden">
+                <div className="pr-10 flex flex-col justify-center text-gray-800 font-serif text-lg border-t border-r border-b border-accent-2 rounded-r-2xl overflow-hidden">
                   <p className="pt-10">
                     20 yıldır iş yaşamında faal olan Sibel Ürün Bursa’da doğdu,
                     orta öğretimini Bursa Anadolu Lisesinde tamamlayarak,
@@ -189,8 +211,8 @@ export default function Index({ subscription, airtabledata }) {
                   </p>
                   <p className="mt-5 mb-10 text-center md:text-left">
                     <Link href="/hakkinda">
-                      <a className="bg-transparent text-sm hover:bg-brand-1 text-gray-700 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
-                        Sibel Ürün hakkında
+                      <a className="rounded-md bg-transparent text-sm hover:bg-brand-1 text-gray-700 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
+                        DEVAMI
                       </a>
                     </Link>
                   </p>
@@ -207,8 +229,8 @@ export default function Index({ subscription, airtabledata }) {
               </p>
               <p className="mt-10">
                 <Link href="/projeler">
-                  <a className="bg-transparent text-sm hover:bg-brand-1 text-gray-700 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
-                    Projeler
+                  <a className="rounded-md bg-transparent text-sm hover:bg-brand-1 text-gray-700 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
+                    PROJELER
                   </a>
                 </Link>
               </p>
@@ -234,32 +256,34 @@ export default function Index({ subscription, airtabledata }) {
             })}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-10 px-5 py-5">
+          <div className="grid md:grid-cols-1 gap-6 mb-10 px-5 py-5">
             <div className="flex flex-col justify-center items-center text-center px-10 py-10">
               <h4 className="mb-3 text-2xl font-bold">Öncesi Sonrası</h4>
-              <p className="text-xl font-serif italic">
-                " 4 Ayda Hayallerine Kavuştular "
+              <p className="text-xl font-serif">
+                " 4 ayda hayallerine kavuştular... "
               </p>
             </div>
-            {airtabledata.map((item) => {
-              return (
-                <div className="hover-zoom-img" key={item.Id}>
-                  {item.Photo && (
-                    <NextImage
-                      src={item.Photo[0].thumbnails.large.url}
-                      alt={item.Name}
-                      width={120}
-                      height={80}
-                      layout="responsive"
-                      objectFit="cover"
-                      placeholder="blur"
-                      blurDataURL={item.Photo[0].thumbnails.small.url}
-                      srl_gallery_image="true"
-                    />
-                  )}
-                </div>
-              )
-            })}
+            <Carousel responsive={responsive}>
+              {airtabledataOS.map((item) => {
+                return (
+                  <div key={item.Id}>
+                    {item.Photo && (
+                      <NextImage
+                        src={item.Photo[0].thumbnails.large.url}
+                        alt={item.Name}
+                        width={item.Photo[0].thumbnails.large.width}
+                        height={item.Photo[0].thumbnails.large.height}
+                        layout="responsive"
+                        objectFit="cover"
+                        placeholder="blur"
+                        blurDataURL={item.Photo[0].thumbnails.small.url}
+                        srl_gallery_image="true"
+                      />
+                    )}
+                  </div>
+                )
+              })}
+            </Carousel>
           </div>
 
           {/* <div style={{ background: '#cec4bc' }}>
@@ -289,8 +313,45 @@ export default function Index({ subscription, airtabledata }) {
               excerpt={heroPost.excerpt}
             />
           )} */}
-            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
           </Container>
+          <div
+            className="mb-20 ml-6 mr-6 mx-auto px-5 border-t border-r border-l border-accent-2 rounded-t-2xl overflow-hidden"
+            // style={{
+            //   background:
+            //     'linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(247, 245, 240,1) 100%);'
+            // }}
+          >
+            {/* <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1000 99"
+              fill="#ffffff"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M526.35,17.11C607.41,28.38,687,48.17,768.06,59.5A1149.19,1149.19,0,0,0,1000,68.07V0H0V99C155.18,13.84,347.42-7.77,526.35,17.11Z"
+                transform="translate(0 0.04)"
+              ></path>
+            </svg> */}
+            <Container>
+              <h2 className="pt-10 text-center mb-8 text-2xl font-bold tracking-tighter leading-tight">
+                Son Yazılar
+              </h2>
+              <h3 className="pb-10 text-center font-serif mb-8 text-2xl max-w-2xl m-auto ">
+                Mesleğime ve sektörüme yönelik güncel olayları, deneyimlerimi ve
+                ünlülerin evlerine ait yorumlarımı blog yazılarımda
+                bulabilirsiniz...
+              </h3>
+
+              {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+              <p className="text-center mt-28 pb-5">
+                <Link href="/blog">
+                  <a className="rounded-md bg-transparent text-sm hover:bg-brand-1 text-gray-700 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
+                    BLOG YAZILARIMIN TAMAMI
+                  </a>
+                </Link>
+              </p>
+            </Container>
+          </div>
         </Layout>
       </PageTransition>
     </>

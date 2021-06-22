@@ -4,10 +4,7 @@ import cn from 'classnames'
 function PageTitle({ children, className, ...props }) {
   return (
     <p
-      className={cn(
-        'text-2xl md:text-4xl font-bold text-highlight mt-10 mb-10',
-        className
-      )}
+      className={cn('text-2xl font-bold text-highlight mt-10 mb-10', className)}
       {...props}
     >
       {children}

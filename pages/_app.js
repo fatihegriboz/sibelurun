@@ -1,4 +1,5 @@
 import '../styles/index.css'
+
 import SimpleReactLightbox from 'simple-react-lightbox'
 
 function MyApp({ Component, pageProps }) {

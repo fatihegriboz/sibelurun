@@ -16,16 +16,36 @@ function Contact() {
       <PageTransition>
         <Layout>
           <Container cname="col-sm">
-            <PageTitle>Say Hello</PageTitle>
+            <PageTitle>İletişim</PageTitle>
 
             <div className="grid sm:grid-cols-2 gap-20">
+              <p className="pb-10 font-serif mb-8 text-xl">
+                {/* "İyi bir projenin varolması, sevgi dolu ve insani bir vizyon
+                yaklaşımı ile kaçınılmazdır..." */}
+                Birlikte çalışmak ya da bir soru sormak ister misiniz? Hadi
+                başlayalım.
+              </p>
               <div>
                 {/* <Social /> */}
-                <p className="pt-6 pb-6">sibel@sibelurun.com</p>
-                <p className="pt-6 pb-2">‭+90 (212) 951 05 75‬</p>
-                <p className="pb-6">Süleyman Seba Cad. No:79 Maçka Beşiktaş</p>
+
+                <p className="pb-3">sibel@sibelurun.com</p>
+                <p className="pb-3">‭+90 (212) 951 05 75‬</p>
+                <p className="pb-10">Süleyman Seba Cad. No:79 Maçka Beşiktaş</p>
+                <p className="pt-3 pb-6">
+                  <a
+                    className="font-bold rounded-md bg-transparent text-sm hover:bg-brand-1 text-gray-700 hover:text-white py-4 px-6 border border-brand-1 hover:border-transparent font-bold font-sans hover:no-underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSd5BX8aEiU4Eb6peRZ6t5B9fTwEqZTORjUCb43M23d5kVeLPw/viewform"
+                  >
+                    İletişim Formu için tıklayınız
+                  </a>
+                </p>
+                <p></p>
+                <p></p>
               </div>
             </div>
+            <h3 className="font-bold text-xl py-10">Kroki</h3>
           </Container>
           <Container cname="col-lg">
             <div>

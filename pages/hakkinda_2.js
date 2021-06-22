@@ -24,11 +24,11 @@ function About({ data }) {
       </Head>
       <PageTransition>
         <Layout>
-          <Container cname="col-lg">
+          <Container cname="col-sm">
             <PageTitle>{data[0].Name}</PageTitle>
 
             <div
-              className="grid sm:grid-cols-5 gap-10 border-t border-accent-2"
+              className="grid sm:grid-cols-1 gap-0"
               styles={
                 {
                   // background: `url(${data[0].Photo[0].thumbnails.large.url})`
@@ -36,19 +36,20 @@ function About({ data }) {
               }
             >
               <div
-                className="richtext col-span-3 border-r font-serif border-accent-2 pt-10 pr-10 pb-20 "
+                className="richtext"
                 dangerouslySetInnerHTML={{
                   __html: marked(data[0].Content)
                 }}
               />
 
-              <div className="pt-10 col-span-2">
-                <div className="">
+              <div>
+                <div className="max-w-xs m-auto">
                   <NextImage
-                    src={data[0].Photo[0].thumbnails.full.url}
+                    style={{ position: 'relative' }}
+                    src={data[0].Photo[0].thumbnails.large.url}
                     alt="Sibel Ürün"
-                    width={data[0].Photo[0].thumbnails.full.width}
-                    height={data[0].Photo[0].thumbnails.full.height}
+                    width={data[0].Photo[0].thumbnails.large.width}
+                    height={data[0].Photo[0].thumbnails.large.height}
                     layout="responsive"
                     placeholder="blur"
                     blurDataURL={data[0].Photo[0].thumbnails.small.url}
