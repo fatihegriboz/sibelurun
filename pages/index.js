@@ -13,24 +13,15 @@ import MoreStories from '../components/more-stories'
 import { request } from '../lib/datocms'
 import { metaTagsFragment, responsiveImageFragment } from '../lib/fragments'
 
-import UAParser from "ua-parser-js";
+
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 
-export const getStaticProps = async ({ preview, req }) => {
+export const getStaticProps = async ({ preview }) => {
   const airtabledata = await getTable('Home Slider Projeler')
   const airtabledataOS = await getTable('Home Slider Once Sonra')
-  //
-  let userAgent;
-  if (req) {
-    userAgent = req.headers["user-agent"];
-  } else {
-    userAgent = "desktop"; //navigator.userAgent;
-  }
-  const parser = new UAParser();
-  parser.setUA(userAgent);
-  const result = parser.getResult();
-  const deviceType = (result.device && result.device.type) || "desktop";
+  
+  const deviceType = "desktop";
   
   // export async function getStaticProps({ preview }) {
   const graphqlRequest = {
@@ -75,7 +66,7 @@ export const getStaticProps = async ({ preview, req }) => {
     props: {
       airtabledata,
       airtabledataOS,
-      deviceType,
+
       subscription: preview
         ? {
             ...graphqlRequest,
