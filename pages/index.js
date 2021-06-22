@@ -13,12 +13,25 @@ import MoreStories from '../components/more-stories'
 import { request } from '../lib/datocms'
 import { metaTagsFragment, responsiveImageFragment } from '../lib/fragments'
 
+import UAParser from "ua-parser-js";
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 
-export const getStaticProps = async ({ preview }) => {
+export const getStaticProps = async ({ preview, req }) => {
   const airtabledata = await getTable('Home Slider Projeler')
   const airtabledataOS = await getTable('Home Slider Once Sonra')
+  //
+  let userAgent;
+  if (req) {
+    userAgent = req.headers["user-agent"];
+  } else {
+    userAgent = "desktop"; //navigator.userAgent;
+  }
+  const parser = new UAParser();
+  parser.setUA(userAgent);
+  const result = parser.getResult();
+  const deviceType = (result.device && result.device.type) || "desktop";
+  
   // export async function getStaticProps({ preview }) {
   const graphqlRequest = {
     query: `
@@ -62,6 +75,7 @@ export const getStaticProps = async ({ preview }) => {
     props: {
       airtabledata,
       airtabledataOS,
+      deviceType,
       subscription: preview
         ? {
             ...graphqlRequest,
@@ -78,7 +92,7 @@ export const getStaticProps = async ({ preview }) => {
   }
 }
 
-export default function Index({ subscription, airtabledata, airtabledataOS }) {
+export default function Index({ subscription, airtabledata, airtabledataOS, deviceType }) {
   const {
     data: { allPosts, site, blog }
   } = useQuerySubscription(subscription)
@@ -263,7 +277,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                 " 4 ayda hayallerine kavuştular... "
               </p>
             </div>
-            <Carousel responsive={responsive} ssr={true} deviceType="desktop">
+            <Carousel responsive={responsive} ssr={true} deviceType={deviceType}>
               {airtabledataOS.map((item) => {
                 return (
                   <div key={item.Id}>
