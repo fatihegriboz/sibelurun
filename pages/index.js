@@ -141,7 +141,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
           <Container>
             {/* <Intro /> */}
             <div className="text-center">
-              <AliceCarousel mouseTracking items={items} />
+              <AliceCarousel mouseTracking ssrSilentMode items={items} />
               <p className="text-3xl font-serif">
                 “ Tasarım; estetik, deneyimsel ve duygusal olarak <br></br>
                 hayatımzın iyileştirilmesiyle ilgilidir... ”
