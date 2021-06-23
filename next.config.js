@@ -22,11 +22,7 @@ const nextConfig = (phase) => {
       API_URL: isDev ? 'http://localhost:3000' : 'https://sibelurun.vercel.app'
     },
     images: {
-      domains: [
-        'dl.airtable.com',
-        'www.datocms-assets.com',
-        'www.urunmimarlik.com'
-      ]
+      domains: ['dl.airtable.com', 'www.datocms-assets.com']
     },
     pwa: {
       dest: 'public',
