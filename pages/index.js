@@ -266,7 +266,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                 " 4 ayda hayallerine kavuştular... "
               </p>
             </div>
-            <Carousel responsive={responsive} ssr={false}>
+            <Carousel responsive={responsive}>
               {airtabledataOS.map((item) => {
                 return (
                   <div key={item.Id}>
