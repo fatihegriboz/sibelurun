@@ -13,7 +13,11 @@ import MoreStories from '../components/more-stories'
 import { request } from '../lib/datocms'
 import { metaTagsFragment, responsiveImageFragment } from '../lib/fragments'
 
-import Carousel from 'react-multi-carousel'
+import dynamic from 'next/dynamic'
+
+const Carousel = dynamic(() => import('react-multi-carousel'), { ssr: false })
+
+//import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 
 export const getStaticProps = async ({ preview }) => {
