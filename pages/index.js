@@ -272,16 +272,22 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                 return (
                   <div key={item.Id}>
                     {item.Photo && (
-                      <NextImage
+                      // <NextImage
+                      //   src={item.Photo[0].thumbnails.large.url}
+                      //   alt={item.Name}
+                      //   width={item.Photo[0].thumbnails.large.width}
+                      //   height={item.Photo[0].thumbnails.large.height}
+                      //   layout="responsive"
+                      //   objectFit="cover"
+                      //   placeholder="blur"
+                      //   blurDataURL={item.Photo[0].thumbnails.small.url}
+                      //   srl_gallery_image="true"
+                      // />
+                      <img
                         src={item.Photo[0].thumbnails.large.url}
                         alt={item.Name}
                         width={item.Photo[0].thumbnails.large.width}
                         height={item.Photo[0].thumbnails.large.height}
-                        layout="responsive"
-                        objectFit="cover"
-                        placeholder="blur"
-                        blurDataURL={item.Photo[0].thumbnails.small.url}
-                        srl_gallery_image="true"
                       />
                     )}
                   </div>
