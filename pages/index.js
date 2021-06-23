@@ -13,10 +13,10 @@ import MoreStories from '../components/more-stories'
 import { request } from '../lib/datocms'
 import { metaTagsFragment, responsiveImageFragment } from '../lib/fragments'
 
-import Carousel from 'react-multi-carousel'
+import CarouselNO from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 
-import Carousel22 from 'nuka-carousel'
+import Carousel from 'nuka-carousel'
 //react-alice-carousel
 // const items = [
 //   <img
@@ -135,18 +135,6 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             <title>İç Mimar Sibel Ürün</title>
           </Head>
           <Container>
-            <Carousel22 autoplay={true} height="100%" initialSlideHeight={500}>
-              <img
-                src="https://images.unsplash.com/photo-1611152171907-886a565484b5"
-                alt="Big1"
-                height="500px"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1610972504483-2a41daae0a33"
-                alt="Big2"
-                height="500px"
-              />
-            </Carousel22>
             {/* <Intro /> */}
             <div className="text-center">
               <p className="text-3xl font-serif">
@@ -297,7 +285,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                 " 4 ayda hayallerine kavuştular... "
               </p>
             </div>
-            <Carousel responsive={responsive}>
+            <Carousel autoplay={true} height="100%" initialSlideHeight={500}>
               {airtabledataOS.map((item) => {
                 return (
                   <div key={item.Id}>
@@ -318,6 +306,27 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                 )
               })}
             </Carousel>
+            {/* <CarouselNO responsive={responsive}>
+              {airtabledataOS.map((item) => {
+                return (
+                  <div key={item.Id}>
+                    {item.Photo && (
+                      <NextImage
+                        src={item.Photo[0].thumbnails.large.url}
+                        alt={item.Name}
+                        width={item.Photo[0].thumbnails.large.width}
+                        height={item.Photo[0].thumbnails.large.height}
+                        layout="responsive"
+                        objectFit="cover"
+                        placeholder="blur"
+                        blurDataURL={item.Photo[0].thumbnails.small.url}
+                        srl_gallery_image="true"
+                      />
+                    )}
+                  </div>
+                )
+              })}
+            </CarouselNO> */}
           </div>
 
           {/* <div style={{ background: '#cec4bc' }}>
