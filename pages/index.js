@@ -16,12 +16,7 @@ import { metaTagsFragment, responsiveImageFragment } from '../lib/fragments'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 
-//
-import AliceCarousel from 'react-alice-carousel'
-import 'react-alice-carousel/lib/alice-carousel.css'
-
-const handleDragStart = (e) => e.preventDefault()
-
+//react-alice-carousel
 const items = [
   <img
     src="https://images.unsplash.com/photo-1611152171907-886a565484b5"
@@ -141,7 +136,6 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
           <Container>
             {/* <Intro /> */}
             <div className="text-center">
-              <AliceCarousel mouseTracking ssrSilentMode items={items} />
               <p className="text-3xl font-serif">
                 “ Tasarım; estetik, deneyimsel ve duygusal olarak <br></br>
                 hayatımzın iyileştirilmesiyle ilgilidir... ”
