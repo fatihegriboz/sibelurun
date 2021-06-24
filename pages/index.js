@@ -23,6 +23,7 @@ import dynamic from 'next/dynamic'
 const MyCarousel = dynamic(() => import('../components/MyCarousel'), {
   ssr: false
 })
+
 // const { default: MyCarousel } = dynamic(
 //   () => import('../components/MyCarousel'),
 //   { ssr: false }
@@ -148,7 +149,8 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             <title>İç Mimar Sibel Ürün</title>
           </Head>
           <Container>
-            <MyCarousel data={airtabledataOS} />
+            {process.browser ? <div>1</div> : <div>2</div>}
+            {process.browser && <MyCarousel data={airtabledataOS} />}
             {/* <Intro /> */}
             <div className="text-center">
               <p className="text-3xl font-serif">
