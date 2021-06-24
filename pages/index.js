@@ -155,7 +155,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                   />
                 </div>
 
-                <div className="px-5 md:pr-10  flex flex-col justify-center text-gray-800 font-serif text-lg border-t-0 md:border-t border-r border-b border-accent-2 sm:rounded-tr-none rounded-tr-2xl rounded-br-2xl overflow-hidden">
+                <div className="px-5 md:pr-10 flex flex-col justify-center text-gray-800 font-serif text-lg border-accent-2 border-t-0 md:border-t border-r border-b sm:rounded-tr-none md:rounded-tr-2xl rounded-br-2xl overflow-hidden">
                   <p>
                     20 yıldır iş yaşamında faal olan Sibel Ürün Bursa’da doğdu,
                     orta öğretimini Bursa Anadolu Lisesinde tamamlayarak,
@@ -185,7 +185,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             </section>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-10 px-5 py-5">
+          <div className="grid md:grid-cols-2 gap-6 mb-10 md:px-5 md:py-5">
             <div className="flex flex-col justify-center items-center text-center px-10 py-10">
               <h4 className="mb-3 text-2xl font-bold">Tasarım ve Çözümler</h4>
               <p className="text-xl font-serif italic">
