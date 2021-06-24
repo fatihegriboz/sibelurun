@@ -193,8 +193,8 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                 d="M1440 0H0V78.5971C0 78.5971 188.5 13.1864 340.111 41.0377C491.722 68.889 598.092 84.5107 697.395 82.8849C743.873 82.124 806.499 68.3031 872.151 53.8143C946.766 37.3474 1025.29 20.0178 1088.46 20.0178C1225.53 20.0178 1440 82.8849 1440 82.8849V0Z"
               ></path>
             </svg> */}
-            <section className="md:px-5 md:py-5">
-              <div className="grid md:grid-cols-2 gap-6 md:rounded-l-2xl overflow-hidden">
+            <section className="px-0 py-0 md:px-5 md:py-5">
+              <div className="grid md:grid-cols-2 gap-6 rounded-l-none md:rounded-l-2xl overflow-hidden">
                 <div className="hover-zoom-img relative max-w-full bg-accent-2">
                   <NextImage
                     src="/static/images/su.jpg"
@@ -231,7 +231,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
               </div> */}
                 </div>
 
-                <div className="px-5 md:pr-10 flex flex-col justify-center text-gray-800 font-serif text-lg md:border-t md:border-r md:border-b md:border-accent-2 md:rounded-r-2xl overflow-hidden">
+                <div className="md:border md:border-l-0 md:rounded-r-lg">
                   <p className="pt-10">
                     20 yıldır iş yaşamında faal olan Sibel Ürün Bursa’da doğdu,
                     orta öğretimini Bursa Anadolu Lisesinde tamamlayarak,
