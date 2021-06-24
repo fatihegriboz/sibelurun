@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import NextImage from 'next/image'
@@ -49,6 +50,9 @@ import dynamic from 'next/dynamic'
 //
 
 export const getStaticProps = async ({ preview }) => {
+  if (typeof window === 'undefined') {
+    console.log('have a browser')
+  }
   const airtabledata = await getTable('Home Slider Projeler')
   const airtabledataOS = await getTable('Home Slider Once Sonra')
 
@@ -95,7 +99,6 @@ export const getStaticProps = async ({ preview }) => {
     props: {
       airtabledata,
       airtabledataOS,
-
       subscription: preview
         ? {
             ...graphqlRequest,
@@ -113,6 +116,9 @@ export const getStaticProps = async ({ preview }) => {
 }
 
 export default function Index({ subscription, airtabledata, airtabledataOS }) {
+  if (typeof window === 'undefined') {
+    console.log('have a browser Index')
+  }
   const {
     data: { allPosts, site, blog }
   } = useQuerySubscription(subscription)
