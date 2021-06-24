@@ -5,7 +5,7 @@ import CarouselNO from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 
 export default function MyCarousel({ data }) {
-  console.log('airtabledataOS:', data)
+  // console.log('airtabledataOS:', data)
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },

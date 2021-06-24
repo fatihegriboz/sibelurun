@@ -20,13 +20,9 @@ import Carousel from 'nuka-carousel'
 
 import dynamic from 'next/dynamic'
 
-const MyCarousel = dynamic(() => import('../components/MyCarousel'), {
-  ssr: false
-})
-
-const MySwiper = dynamic(() => import('../components/MySwiper'), {
-  ssr: false
-})
+// const MyCarousel = dynamic(() => import('../components/MyCarousel'), {
+//   ssr: false
+// })
 
 // const { default: MyCarousel } = dynamic(
 //   () => import('../components/MyCarousel'),
@@ -152,7 +148,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
           <Head>
             <title>İç Mimar Sibel Ürün</title>
           </Head>
-          <MySwiper data={airtabledata} />
+
           <Container>
             {/* <Intro /> */}
             <div className="text-center">
@@ -325,7 +321,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                 )
               })}
             </Carousel>
-            <MyCarousel data={airtabledataOS} />
+            {/* <MyCarousel data={airtabledataOS} /> */}
             {/* <CarouselNO responsive={responsive}>
               {airtabledataOS.map((item) => {
                 return (
