@@ -21,6 +21,9 @@
   .hover-zoom-img{
     overflow: hidden;
   }
+  .hover-zoom-img > div{
+    position: unset !important;
+  }
   .hover-zoom-img img{
     transition: all .3s ease;
   }

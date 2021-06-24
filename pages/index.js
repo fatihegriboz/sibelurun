@@ -133,18 +133,18 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             <title>İç Mimar Sibel Ürün</title>
           </Head>
 
-          <Container cname="col-sm">
+          <Container cname="col-sm mb-20">
             <div className="text-center">
-              <p className="text-2xl pb-12 font-serif">
+              <p className="text-2xl font-serif">
                 “ Tasarım; estetik, deneyimsel ve duygusal olarak hayatımzın
                 iyileştirilmesiyle ilgilidir... ”
               </p>
             </div>
           </Container>
           <div>
-            <section className="lg:px-5 lg:py-5 px-0 py-0">
+            <section className="md:px-6 md:py-6 px-0 py-0">
               <div className="grid md:grid-cols-2 gap-6 rounded-l-none md:rounded-l-2xl overflow-hidden">
-                <div className="hover-zoom-img relative max-w-full bg-accent-3">
+                <div className="hover-zoom-img relative bg-accent-3">
                   <NextImage
                     src="/static/images/su.jpg"
                     alt="Sibel Ürün"
@@ -155,8 +155,8 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                   />
                 </div>
 
-                <div className="px-5 flex flex-col justify-center text-gray-800 font-serif text-lg pr-10 border border-l-0 border-t border-r border-b border-accent-2 rounded-r-2xl overflow-hidden">
-                  <p className="pt-10">
+                <div className="px-5 md:pr-10  flex flex-col justify-center text-gray-800 font-serif text-lg border-t-0 md:border-t border-r border-b border-accent-2 sm:rounded-tr-none rounded-tr-2xl rounded-br-2xl overflow-hidden">
+                  <p>
                     20 yıldır iş yaşamında faal olan Sibel Ürün Bursa’da doğdu,
                     orta öğretimini Bursa Anadolu Lisesinde tamamlayarak,
                     Bilkent Üniversitesi İç Mimari ve Çevre tasarımı bölümünden
@@ -201,7 +201,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             </div>
             {airtabledata.map((item) => {
               return (
-                <div className="hover-zoom-img" key={item.Id}>
+                <div className="hover-zoom-img relative" key={item.Id}>
                   {item.Photo && (
                     <NextImage
                       src={item.Photo[0].thumbnails.large.url}
@@ -274,24 +274,8 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             </CarouselNO> */}
           </div>
 
-          {/* <div style={{ background: '#cec4bc' }}>
-            <div className="container mx-auto px-5 mb-10">
-              <p className="pt-10 pb-10 text-gray-800 lg:pl-50 lg:pr-50">
-                20 yıldır iş yaşamında faal olan Sibel Ürün Bursa’da doğdu, orta
-                öğretimini Bursa Anadolu Lisesinde tamamlayarak, Bilkent
-                Üniversitesi İç Mimari ve Çevre tasarımı bölümünden mezun oldu.
-                Yüksek Lisansını Yeditepe Üniversitesinde Art Management üzerine
-                yaptı, “Kurumlar Bağlamında Sanat Finans İlişkileri ve Türkiye”
-                isimli tez çalışmasını yayınladı. Marmara Üniversitesi Avrupa
-                Birliği Enstitüsü Doktora Programına kabul edildi. 2000 yılından
-                itibaren de mesleki çalışmalarını sahibi olduğu Ürün Mimarlık
-                şirketinde sürdürmektedir.
-              </p>
-            </div>
-          </div> */}
-
-          <Container>
-            {/* {heroPost && (
+          {/* <Container>
+            {heroPost && (
             <HeroPost
               title={heroPost.title}
               coverImage={heroPost.coverImage}
@@ -300,14 +284,15 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
               slug={heroPost.slug}
               excerpt={heroPost.excerpt}
             />
-          )} */}
-          </Container>
+          )}
+          </Container> */}
+
           <div
             className="mb-20 md:ml-6 md:mr-6 md:mx-auto md:px-5 md:border-t md:border-r md:border-l md:border-accent-2 md:rounded-t-2xl overflow-hidden"
-            // style={{
-            //   background:
-            //     'linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(247, 245, 240,1) 100%);'
-            // }}
+            style={{
+              background:
+                'linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(244, 241, 235,1) 100%);'
+            }}
           >
             {/* <svg
               xmlns="http://www.w3.org/2000/svg"
