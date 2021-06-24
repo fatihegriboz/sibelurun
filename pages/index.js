@@ -13,12 +13,19 @@ import MoreStories from '../components/more-stories'
 import { request } from '../lib/datocms'
 import { metaTagsFragment, responsiveImageFragment } from '../lib/fragments'
 
+import dynamic from 'next/dynamic'
+
+// const { default: CarouselNO } = dynamic(() => import('react-multi-carousel'), {
+//   ssr: false
+// })
+
 import CarouselNO from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 
 import Carousel from 'nuka-carousel'
 
 import NoSSR from 'react-no-ssr'
+
 //react-alice-carousel
 // const items = [
 //   <img
@@ -138,6 +145,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
           </Head>
           <Container>
             {/* <Intro /> */}
+
             <div className="text-center">
               <p className="text-3xl font-serif">
                 “ Tasarım; estetik, deneyimsel ve duygusal olarak <br></br>
@@ -308,29 +316,31 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                 )
               })}
             </Carousel>
-            <NoSSR>
-              <CarouselNO responsive={responsive}>
-                {airtabledataOS.map((item) => {
-                  return (
-                    <div key={item.Id}>
-                      {item.Photo && (
-                        <NextImage
-                          src={item.Photo[0].thumbnails.large.url}
-                          alt={item.Name}
-                          width={item.Photo[0].thumbnails.large.width}
-                          height={item.Photo[0].thumbnails.large.height}
-                          layout="responsive"
-                          objectFit="cover"
-                          placeholder="blur"
-                          blurDataURL={item.Photo[0].thumbnails.small.url}
-                          srl_gallery_image="true"
-                        />
-                      )}
-                    </div>
-                  )
-                })}
-              </CarouselNO>
-            </NoSSR>
+            <div suppressHydrationWarning={true}>
+              {process.browser && (
+                <CarouselNO ssr responsive={responsive}>
+                  {airtabledataOS.map((item) => {
+                    return (
+                      <div key={item.Id}>
+                        {item.Photo && (
+                          <NextImage
+                            src={item.Photo[0].thumbnails.large.url}
+                            alt={item.Name}
+                            width={item.Photo[0].thumbnails.large.width}
+                            height={item.Photo[0].thumbnails.large.height}
+                            layout="responsive"
+                            objectFit="cover"
+                            placeholder="blur"
+                            blurDataURL={item.Photo[0].thumbnails.small.url}
+                            srl_gallery_image="true"
+                          />
+                        )}
+                      </div>
+                    )
+                  })}
+                </CarouselNO>
+              )}
+            </div>
           </div>
 
           {/* <div style={{ background: '#cec4bc' }}>
