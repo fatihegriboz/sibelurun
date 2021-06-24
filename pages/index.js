@@ -13,8 +13,8 @@ import MoreStories from '../components/more-stories'
 import { request } from '../lib/datocms'
 import { metaTagsFragment, responsiveImageFragment } from '../lib/fragments'
 
-import CarouselNO from 'react-multi-carousel'
-import 'react-multi-carousel/lib/styles.css'
+// import CarouselNO from 'react-multi-carousel'
+// import 'react-multi-carousel/lib/styles.css'
 
 import Carousel from 'nuka-carousel'
 
@@ -321,7 +321,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
               })}
             </Carousel>
 
-            <CarouselNO responsive={responsive}>
+            {/* <CarouselNO responsive={responsive}>
               {airtabledataOS.map((item) => {
                 return (
                   <div key={item.Id}>
@@ -341,7 +341,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                   </div>
                 )
               })}
-            </CarouselNO>
+            </CarouselNO> */}
           </div>
 
           {/* <div style={{ background: '#cec4bc' }}>
