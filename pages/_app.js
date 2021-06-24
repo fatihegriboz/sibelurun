@@ -1,4 +1,6 @@
 import '../styles/index.css'
+// Import Swiper styles
+import 'swiper/swiper.scss'
 
 import SimpleReactLightbox from 'simple-react-lightbox'
 

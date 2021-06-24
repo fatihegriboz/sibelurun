@@ -24,6 +24,8 @@ const MyCarousel = dynamic(() => import('../components/MyCarousel'), {
   ssr: false
 })
 
+import MySwiper from '../components/MySwiper'
+
 // const { default: MyCarousel } = dynamic(
 //   () => import('../components/MyCarousel'),
 //   { ssr: false }
@@ -148,6 +150,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
           <Head>
             <title>İç Mimar Sibel Ürün</title>
           </Head>
+          <MySwiper data={airtabledata} />
           <Container>
             {/* <Intro /> */}
             <div className="text-center">

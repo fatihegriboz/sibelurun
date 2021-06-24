@@ -22,17 +22,18 @@
     "react-datocms": "^1.6.0",
     "react-dom": "^17.0.2",
     "react-multi-carousel": "^2.6.3",
+    "sass": "^1.35.1",
     "simple-react-lightbox": "^3.6.6",
+    "swiper": "^6.7.1",
     "tiny-json-http": "^7.3.0"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.0",
     "@tailwindcss/typography": "^0.4.0",
+    "css-loader": "^4.2.0",
     "dotenv": "8.2.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.3.0",
-    "tailwindcss": "^2.1.2",
-    "css-loader": "^4.2.0"
-    
+    "tailwindcss": "^2.1.2"
   }
 }
