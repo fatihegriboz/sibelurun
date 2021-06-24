@@ -19,7 +19,7 @@ import { metaTagsFragment, responsiveImageFragment } from '../lib/fragments'
 import Carousel from 'nuka-carousel'
 
 import dynamic from 'next/dynamic'
-
+import { useEffect, useState } from 'react'
 const MyCarousel = dynamic(() => import('../components/MyCarousel'), {
   ssr: false
 })
@@ -139,7 +139,8 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
       items: 1
     }
   }
-
+  const [isComponentMounted, setIsComponentMounted] = useState(false)
+  useEffect(() => setIsComponentMounted(true), [])
   return (
     <>
       <PageTransition>
@@ -149,8 +150,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             <title>İç Mimar Sibel Ürün</title>
           </Head>
           <Container>
-            {process.browser ? <div>1</div> : <div>2</div>}
-            {process.browser && <MyCarousel data={airtabledataOS} />}
+            {isComponentMounted && <MyCarousel data={airtabledataOS} />}
             {/* <Intro /> */}
             <div className="text-center">
               <p className="text-3xl font-serif">
