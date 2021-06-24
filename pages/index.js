@@ -124,25 +124,6 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
   const morePosts = allPosts.slice(0, 3)
   const metaTags = blog.seo.concat(site.favicon)
 
-  // const responsive = {
-  //   superLargeDesktop: {
-  //     breakpoint: { max: 4000, min: 3000 },
-  //     items: 1
-  //   },
-  //   desktop: {
-  //     breakpoint: { max: 3000, min: 1024 },
-  //     items: 1
-  //   },
-  //   tablet: {
-  //     breakpoint: { max: 1024, min: 464 },
-  //     items: 1
-  //   },
-  //   mobile: {
-  //     breakpoint: { max: 464, min: 0 },
-  //     items: 1
-  //   }
-  // }
-
   return (
     <>
       <PageTransition>
@@ -152,83 +133,26 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             <title>İç Mimar Sibel Ürün</title>
           </Head>
 
-          <Container>
-            {/* <Intro /> */}
+          <Container cname="col-sm">
             <div className="text-center">
-              <p className="text-3xl pb-12 font-serif">
-                “ Tasarım; estetik, deneyimsel ve duygusal olarak <br></br>
-                hayatımzın iyileştirilmesiyle ilgilidir... ”
+              <p className="text-2xl pb-12 font-serif">
+                “ Tasarım; estetik, deneyimsel ve duygusal olarak hayatımzın
+                iyileştirilmesiyle ilgilidir... ”
               </p>
-              {/* <p className="pb-36 text-gray-700 font-serif">Sibel Ürün</p> */}
             </div>
           </Container>
           <div>
-            {/* background: #f4f1eb */}
-            {/* <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1000 99"
-              preserveAspectRatio="none"
-              width="1000"
-              height="99px"
-              fill="red"
-              className="homepage-hero-wave"
-            >
-              <path
-                d="M526.35,17.11C607.41,28.38,687,48.17,768.06,59.5A1149.19,1149.19,0,0,0,1000,68.07V0H0V99C155.18,13.84,347.42-7.77,526.35,17.11Z"
-                transform="translate(0 0.04)"
-              ></path>
-            </svg> */}
-            {/* <svg
-              width="1440"
-              height="83"
-              viewBox="0 0 1440 83"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="#fff"
-              className="homepage-hero-wave"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M1440 0H0V78.5971C0 78.5971 188.5 13.1864 340.111 41.0377C491.722 68.889 598.092 84.5107 697.395 82.8849C743.873 82.124 806.499 68.3031 872.151 53.8143C946.766 37.3474 1025.29 20.0178 1088.46 20.0178C1225.53 20.0178 1440 82.8849 1440 82.8849V0Z"
-              ></path>
-            </svg> */}
             <section className="px-0 py-0 md:px-5 md:py-5">
               <div className="grid md:grid-cols-2 gap-6 rounded-l-none md:rounded-l-2xl overflow-hidden">
                 <div className="hover-zoom-img relative max-w-full bg-accent-2">
                   <NextImage
                     src="/static/images/su.jpg"
                     alt="Sibel Ürün"
-                    width={600}
-                    height={600}
+                    width={660}
+                    height={660}
                     layout="responsive"
-                    // objectFit="cover"
+                    objectFit="cover"
                   />
-
-                  {/* <div
-                className="absolute w-full left-0 right-0"
-                style={{ bottom: '-5px' }}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 1000 99"
-                  fill="#cec4bc"
-                  preserveAspectRatio="none"
-                  width="200%"
-                  height="100px"
-                  style={{
-                    maxWidth: '200%',
-                    width: '200%',
-                    height: 'auto',
-                    transform: 'rotateX(180deg) translateX(-10%)'
-                  }}
-                >
-                  <path
-                    d="M526.35,17.11C607.41,28.38,687,48.17,768.06,59.5A1149.19,1149.19,0,0,0,1000,68.07V0H0V99C155.18,13.84,347.42-7.77,526.35,17.11Z"
-                    transform="translate(0 0.04)"
-                  ></path>
-                </svg>
-              </div> */}
                 </div>
 
                 <div className="px-5 flex flex-col justify-center text-gray-800 font-serif text-lg pr-10 border border-l-0 border-t border-r border-b border-accent-2 rounded-r-2xl overflow-hidden">
@@ -261,7 +185,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             </section>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-10 md:px-5 md:py-5">
+          <div className="grid md:grid-cols-2 gap-6 mb-10 px-5 py-5">
             <div className="flex flex-col justify-center items-center text-center px-10 py-10">
               <h4 className="mb-3 text-2xl font-bold">Tasarım ve Çözümler</h4>
               <p className="text-xl font-serif italic">
