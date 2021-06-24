@@ -18,6 +18,18 @@ import 'react-multi-carousel/lib/styles.css'
 
 import Carousel from 'nuka-carousel'
 
+import dynamic from 'next/dynamic'
+
+const MyCarousel = dynamic(() => import('../components/MyCarousel'), {
+  ssr: false
+})
+// const { default: MyCarousel } = dynamic(
+//   () => import('../components/MyCarousel'),
+//   { ssr: false }
+// )
+
+// import MyCarousel from '../components/MyCarousel'
+
 //react-alice-carousel
 // const items = [
 //   <img
@@ -136,6 +148,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             <title>İç Mimar Sibel Ürün</title>
           </Head>
           <Container>
+            <MyCarousel data={airtabledataOS} />
             {/* <Intro /> */}
             <div className="text-center">
               <p className="text-3xl font-serif">
