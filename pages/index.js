@@ -20,7 +20,7 @@ import { metaTagsFragment, responsiveImageFragment } from '../lib/fragments'
 // import Carousel from 'nuka-carousel'
 
 import dynamic from 'next/dynamic'
-const SiteCarousel = dynamic(() => import('../components/MyCarousel'), {
+const MyCarousel = dynamic(() => import('../components/MyCarousel'), {
   ssr: false
 })
 
@@ -188,7 +188,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
           <div className="grid md:grid-cols-2 gap-6 mb-10 md:px-5 md:py-5">
             <div className="flex flex-col justify-center items-center text-center px-10 py-10">
               <h4 className="mb-3 text-2xl font-bold">Tasarım ve Çözümler</h4>
-              <p className="text-xl font-serif italic">
+              <p className="text-2xl font-serif italic">
                 " Her mekan, kişinin içindeki tutkusunu yansıtır... "
               </p>
               <p className="mt-10">
@@ -220,58 +220,15 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             })}
           </div>
 
-          <div className="grid md:grid-cols-1 gap-6 mb-10 md:px-5 md:py-5">
-            <div className="flex flex-col justify-center items-center text-center px-10 py-10">
+          <div className="grid md:grid-cols-1 gap-6 mb-16 md:px-0 md:py-5">
+            <div className="flex flex-col justify-center items-center text-center px-10 pt-10">
               <h4 className="mb-3 text-2xl font-bold">Öncesi Sonrası</h4>
-              <p className="text-xl font-serif">
-                " 4 ayda hayallerine kavuştular... "
+              <p className="text-2xl font-serif">
+                4 ayda hayallerine kavuştular...
               </p>
             </div>
 
-            <SiteCarousel data={airtabledataOS} />
-            {/* <Carousel autoplay={true} height="100%" initialSlideHeight={500}>
-              {airtabledataOS.map((item) => {
-                return (
-                  <div key={item.Id}>
-                    {item.Photo && (
-                      <NextImage
-                        src={item.Photo[0].thumbnails.large.url}
-                        alt={item.Name}
-                        width={item.Photo[0].thumbnails.large.width}
-                        height={600}
-                        layout="responsive"
-                        objectFit="cover"
-                        placeholder="blur"
-                        blurDataURL={item.Photo[0].thumbnails.small.url}
-                        srl_gallery_image="true"
-                      />
-                    )}
-                  </div>
-                )
-              })}
-            </Carousel> */}
-            {/* <MyCarousel data={airtabledataOS} /> */}
-            {/* <CarouselNO responsive={responsive}>
-              {airtabledataOS.map((item) => {
-                return (
-                  <div key={item.Id}>
-                    {item.Photo && (
-                      <NextImage
-                        src={item.Photo[0].thumbnails.large.url}
-                        alt={item.Name}
-                        width={item.Photo[0].thumbnails.large.width}
-                        height={item.Photo[0].thumbnails.large.height}
-                        layout="responsive"
-                        objectFit="cover"
-                        placeholder="blur"
-                        blurDataURL={item.Photo[0].thumbnails.small.url}
-                        srl_gallery_image="true"
-                      />
-                    )}
-                  </div>
-                )
-              })}
-            </CarouselNO> */}
+            <MyCarousel data={airtabledataOS} />
           </div>
 
           {/* <Container>
@@ -294,17 +251,6 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                 'linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(244, 241, 235,1) 100%);'
             }}
           >
-            {/* <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1000 99"
-              fill="#ffffff"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M526.35,17.11C607.41,28.38,687,48.17,768.06,59.5A1149.19,1149.19,0,0,0,1000,68.07V0H0V99C155.18,13.84,347.42-7.77,526.35,17.11Z"
-                transform="translate(0 0.04)"
-              ></path>
-            </svg> */}
             <Container>
               <h2 className="pt-10 text-center mb-8 text-2xl font-bold tracking-tighter leading-tight">
                 Son Yazılar
