@@ -17,9 +17,12 @@ import { metaTagsFragment, responsiveImageFragment } from '../lib/fragments'
 // import CarouselNO from 'react-multi-carousel'
 // import 'react-multi-carousel/lib/styles.css'
 
-import Carousel from 'nuka-carousel'
+// import Carousel from 'nuka-carousel'
 
 import dynamic from 'next/dynamic'
+const SiteCarousel = dynamic(() => import('../components/MyCarousel'), {
+  ssr: false
+})
 
 // const MyCarousel = dynamic(() => import('../components/MyCarousel'), {
 //   ssr: false
@@ -50,9 +53,6 @@ import dynamic from 'next/dynamic'
 //
 
 export const getStaticProps = async ({ preview }) => {
-  if (typeof window === 'undefined') {
-    console.log('have a browser')
-  }
   const airtabledata = await getTable('Home Slider Projeler')
   const airtabledataOS = await getTable('Home Slider Once Sonra')
 
@@ -116,9 +116,6 @@ export const getStaticProps = async ({ preview }) => {
 }
 
 export default function Index({ subscription, airtabledata, airtabledataOS }) {
-  if (typeof window === 'undefined') {
-    console.log('have a browser Index')
-  }
   const {
     data: { allPosts, site, blog }
   } = useQuerySubscription(subscription)
@@ -127,24 +124,24 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
   const morePosts = allPosts.slice(0, 3)
   const metaTags = blog.seo.concat(site.favicon)
 
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 1
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
-  }
+  // const responsive = {
+  //   superLargeDesktop: {
+  //     breakpoint: { max: 4000, min: 3000 },
+  //     items: 1
+  //   },
+  //   desktop: {
+  //     breakpoint: { max: 3000, min: 1024 },
+  //     items: 1
+  //   },
+  //   tablet: {
+  //     breakpoint: { max: 1024, min: 464 },
+  //     items: 1
+  //   },
+  //   mobile: {
+  //     breakpoint: { max: 464, min: 0 },
+  //     items: 1
+  //   }
+  // }
 
   return (
     <>
@@ -306,7 +303,9 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                 " 4 ayda hayallerine kavuştular... "
               </p>
             </div>
-            <Carousel autoplay={true} height="100%" initialSlideHeight={500}>
+
+            <SiteCarousel data={airtabledataOS} />
+            {/* <Carousel autoplay={true} height="100%" initialSlideHeight={500}>
               {airtabledataOS.map((item) => {
                 return (
                   <div key={item.Id}>
@@ -326,7 +325,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                   </div>
                 )
               })}
-            </Carousel>
+            </Carousel> */}
             {/* <MyCarousel data={airtabledataOS} /> */}
             {/* <CarouselNO responsive={responsive}>
               {airtabledataOS.map((item) => {
