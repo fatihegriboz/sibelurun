@@ -142,9 +142,9 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             </div>
           </Container>
           <div>
-            <section className="px-0 py-0 md:px-5 md:py-5">
+            <section className="lg:px-5 lg:py-5 px-0 py-0">
               <div className="grid md:grid-cols-2 gap-6 rounded-l-none md:rounded-l-2xl overflow-hidden">
-                <div className="hover-zoom-img relative max-w-full bg-accent-2">
+                <div className="hover-zoom-img relative max-w-full bg-accent-3">
                   <NextImage
                     src="/static/images/su.jpg"
                     alt="Sibel Ürün"
