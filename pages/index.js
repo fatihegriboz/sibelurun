@@ -24,7 +24,9 @@ const MyCarousel = dynamic(() => import('../components/MyCarousel'), {
   ssr: false
 })
 
-import MySwiper from '../components/MySwiper'
+const MySwiper = dynamic(() => import('../components/MySwiper'), {
+  ssr: false
+})
 
 // const { default: MyCarousel } = dynamic(
 //   () => import('../components/MyCarousel'),
