@@ -24,11 +24,10 @@ function Mimari({ airtabledata }) {
         <Layout>
           <Container cname="col-sm">
             <PageTitle>Mimari</PageTitle>
-            {width < 768 && <>test</>}
           </Container>
-          <Container>
+          <Container cname="col-full">
             <SRLWrapper options={options}>
-              <div className="grid sm:grid-cols-6 gap-2">
+              <div className="grid sm:grid-cols-6 gap-5 lg:gap-2">
                 {airtabledata.map((item) => {
                   return (
                     <div key={item.Id}>

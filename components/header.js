@@ -13,7 +13,7 @@ export default function Header() {
   }
 
   return (
-    <div>
+    <div className="flex">
       <div className="sitelogo">
         <Link href="/">
           <a>

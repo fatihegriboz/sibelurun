@@ -133,9 +133,9 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             <title>İç Mimar Sibel Ürün</title>
           </Head>
 
-          <Container cname="col-sm mb-20">
+          <Container cname="col-md flex justify-center items-center h-60">
             <div className="text-center">
-              <p className="text-2xl font-serif">
+              <p className="text-2xl md:text-3xl font-serif">
                 “ Tasarım; estetik, deneyimsel ve duygusal olarak hayatımzın
                 iyileştirilmesiyle ilgilidir... ”
               </p>
@@ -155,7 +155,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                   />
                 </div>
 
-                <div className="px-5 md:pr-10 flex flex-col justify-center text-gray-800 font-serif text-lg border-accent-2 border-t-0 md:border-t border-r border-b sm:rounded-tr-none md:rounded-tr-2xl rounded-br-2xl overflow-hidden">
+                <div className="px-5 md:pr-10 flex flex-col justify-center text-gray-800 font-serif text-lg border-accent-2 xs:border-t-0 md:border-t border-r border-b sm:rounded-tr-none md:rounded-tr-2xl rounded-br-2xl overflow-hidden">
                   <p>
                     20 yıldır iş yaşamında faal olan Sibel Ürün Bursa’da doğdu,
                     orta öğretimini Bursa Anadolu Lisesinde tamamlayarak,
@@ -188,7 +188,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
           <div className="grid md:grid-cols-2 gap-6 mb-10 md:px-5 md:py-5">
             <div className="flex flex-col justify-center items-center text-center px-10 py-10">
               <h4 className="mb-3 text-2xl font-bold">Tasarım ve Çözümler</h4>
-              <p className="text-2xl font-serif italic">
+              <p className="text-2xl font-serif">
                 " Her mekan, kişinin içindeki tutkusunu yansıtır... "
               </p>
               <p className="mt-10">
@@ -203,17 +203,22 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
               return (
                 <div className="hover-zoom-img relative" key={item.Id}>
                   {item.Photo && (
-                    <NextImage
-                      src={item.Photo[0].thumbnails.large.url}
-                      alt={item.Name}
-                      width={120}
-                      height={80}
-                      layout="responsive"
-                      objectFit="cover"
-                      placeholder="blur"
-                      blurDataURL={item.Photo[0].thumbnails.small.url}
-                      srl_gallery_image="true"
-                    />
+                    <>
+                      <p className="overlay-name text-2xl md:text-4xl">
+                        {item.Name}
+                      </p>
+                      <NextImage
+                        src={item.Photo[0].thumbnails.large.url}
+                        alt={item.Name}
+                        width={120}
+                        height={80}
+                        layout="responsive"
+                        objectFit="cover"
+                        placeholder="blur"
+                        blurDataURL={item.Photo[0].thumbnails.small.url}
+                        srl_gallery_image="true"
+                      />
+                    </>
                   )}
                 </div>
               )
@@ -229,6 +234,13 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             </div>
 
             <MyCarousel data={airtabledataOS} />
+            <p className="text-center mt-20 pb-5">
+              <Link href="/projeler/once-sonra">
+                <a className="rounded-md bg-transparent text-sm hover:bg-brand-1 text-gray-700 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
+                  TAMAMINI GÖR
+                </a>
+              </Link>
+            </p>
           </div>
 
           {/* <Container>
@@ -262,10 +274,10 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
               </h3>
 
               {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-              <p className="text-center mt-28 pb-5">
+              <p className="text-center mt-20 pb-5">
                 <Link href="/blog">
                   <a className="rounded-md bg-transparent text-sm hover:bg-brand-1 text-gray-700 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
-                    BLOG YAZILARIMIN TAMAMI
+                    YAZILARIMIN TAMAMI
                   </a>
                 </Link>
               </p>
