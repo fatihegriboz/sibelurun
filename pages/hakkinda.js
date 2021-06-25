@@ -29,7 +29,7 @@ function About({ data }) {
             <PageTitle>{data[0].Name}</PageTitle>
 
             <div
-              className="grid sm:grid-cols-2 md:grid-cols-5 gap-10 border-t border-accent-2"
+              className="grid sm:grid-cols-2 md:grid-cols-6 gap-10 border-t border-accent-2"
               styles={
                 {
                   // background: `url(${data[0].Photo[0].thumbnails.large.url})`
@@ -37,14 +37,14 @@ function About({ data }) {
               }
             >
               <div
-                className="richtext md:col-span-3 col-span-1 border-r font-serif border-accent-2 pt-10 pr-10"
+                className="richtext md:col-span-3 col-span-1 border-r text-lg font-serif border-accent-2 pt-10 pr-10"
                 dangerouslySetInnerHTML={{
                   __html: marked(data[0].Content)
                 }}
               />
 
-              <div className="md:pt-10 md:col-span-2 col-span-1 mb-5">
-                <div className="hover-zoom-img relative">
+              <div className="grid md:pt-10 md:col-span-3 col-span-1 mb-10">
+                <div className="hover-zoom-img relative bg-accent-3">
                   <NextImage
                     src={data[0].Photo[0].thumbnails.full.url}
                     alt="Sibel Ürün"

@@ -39,6 +39,14 @@
     background: rgba(69,42,37,0.5);
     opacity: 0;
   }
+  .hover-zoom-img .overlay-name.is-projects{
+    background: rgba(69,42,37,0.9);
+    opacity: .7;
+  }
+  .hover-zoom-img:hover .overlay-name.is-projects{
+    opacity: 1;
+    background: rgba(69,42,37,1);
+  }
   .hover-zoom-img:hover .overlay-name{
     z-index: 2;
     opacity: .8;

@@ -78,23 +78,34 @@ export default function Header() {
             <h3 className="text-xl font-bold mb-5">Projeler.</h3>
             <ul>
               <li>
-                <Link href="/projeler/mimari">
-                  <a>Mimari</a>
+                <Link href="/projeler/evler">
+                  <a>Evler</a>
                 </Link>
               </li>
               <li>
-                <Link href="/projeler/aksesuar">
+                <Link href="/projeler/otel-eglence">
+                  <a>Otel & Eğlence</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/projeler/aksesuarlar">
                   <a>Aksesuar</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/projeler/once-sonra">
-                  <a>Önce Sonra</a>
                 </Link>
               </li>
               <li>
                 <Link href="/projeler/ticari-alanlar">
                   <a>Ticari Alanlar</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/projeler/mimari">
+                  <a>Mimari</a>
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/projeler/once-sonra">
+                  <a>Önce Sonra</a>
                 </Link>
               </li>
             </ul>

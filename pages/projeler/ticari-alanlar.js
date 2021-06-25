@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import NextImage from 'next/image'
 import Container from '../../components/container'
 import Header from '../../components/header'
@@ -11,6 +12,7 @@ import PageTransition from '../../components/page-transition'
 import PageTitle from '../../components/page-title'
 import SiteConfig from '../../site.config'
 import useWindowSize from '../../hooks/useWindowSize'
+import PageSubTitle from '../../components/page-sub-title'
 
 function TicariAlanlar({ airtabledata }) {
   const { width } = useWindowSize()
@@ -29,7 +31,12 @@ function TicariAlanlar({ airtabledata }) {
       <PageTransition>
         <Layout>
           <Container cname="col-sm">
-            <PageTitle>Ticari Alanlar</PageTitle>
+            <PageTitle>
+              <Link href="/projeler">
+                <a>Projeler</a>
+              </Link>
+            </PageTitle>
+            <PageSubTitle>Ticari Alanlar</PageSubTitle>
           </Container>
           <Container cname="col-full">
             <p className="mt-10 pl-5">Lobiler</p>

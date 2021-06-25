@@ -130,6 +130,11 @@ export default function Post({ subscription, preview }) {
             </title>
           </Head>
           <Container cname="col-full mb-20">
+            <div className="col-full">
+              <p className="pt-10 pb-10 md:px-10 text-center font-serif mb-8 text-xl md:text-2xl max-w-3xl m-auto ">
+                {post.title}
+              </p>
+            </div>
             <article>
               <PostHeader
                 title={post.title}

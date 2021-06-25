@@ -10,20 +10,27 @@ import { options } from '../../constants/options'
 import { SRLWrapper } from 'simple-react-lightbox'
 import PageTransition from '../../components/page-transition'
 import PageTitle from '../../components/page-title'
+import PageSubTitle from '../../components/page-sub-title'
 import SiteConfig from '../../site.config'
+
 import useWindowSize from '../../hooks/useWindowSize'
 
-function Aksesuar({ airtabledata }) {
+function OtelEglence({ airtabledata }) {
   const { width } = useWindowSize()
   return (
     <>
       <Head>
-        <title>Aksesuar | Projeler | {SiteConfig.title}</title>
+        <title>Otel & Eglence | Projeler | {SiteConfig.title}</title>
       </Head>
       <PageTransition>
         <Layout>
           <Container cname="col-sm">
-            <PageTitle>Aksesuar</PageTitle>
+            <PageTitle>
+              <Link href="/projeler">
+                <a>Projeler</a>
+              </Link>
+            </PageTitle>
+            <PageSubTitle>Otel & Eglence</PageSubTitle>
           </Container>
           <Container cname="col-full">
             <SRLWrapper options={options}>
@@ -74,7 +81,7 @@ function Aksesuar({ airtabledata }) {
 }
 
 export async function getStaticProps() {
-  const airtabledata = await getTable('Aksesuar')
+  const airtabledata = await getTable('Mimari')
 
   return {
     props: {
@@ -84,4 +91,4 @@ export async function getStaticProps() {
   }
 }
 
-export default Aksesuar
+export default OtelEglence

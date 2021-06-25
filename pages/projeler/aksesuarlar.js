@@ -2,23 +2,24 @@ import Head from 'next/head'
 import Link from 'next/link'
 import NextImage from 'next/image'
 import Container from '../../components/container'
+import Header from '../../components/header'
 import Layout from '../../components/layout'
 import { getTable } from '../../lib/airtable'
 
 import { options } from '../../constants/options'
 import { SRLWrapper } from 'simple-react-lightbox'
 import PageTransition from '../../components/page-transition'
-import PageSubTitle from '../../components/page-sub-title'
 import PageTitle from '../../components/page-title'
+import PageSubTitle from '../../components/page-sub-title'
 import SiteConfig from '../../site.config'
 import useWindowSize from '../../hooks/useWindowSize'
 
-function Oncesonra({ airtabledata }) {
+function Aksesuar({ airtabledata }) {
   const { width } = useWindowSize()
   return (
     <>
       <Head>
-        <title>Önce Sonra | Projeler | {SiteConfig.title}</title>
+        <title>Aksesuar | Projeler | {SiteConfig.title}</title>
       </Head>
       <PageTransition>
         <Layout>
@@ -28,7 +29,7 @@ function Oncesonra({ airtabledata }) {
                 <a>Projeler</a>
               </Link>
             </PageTitle>
-            <PageSubTitle>Önce Sonra</PageSubTitle>
+            <PageSubTitle>Aksesuarlar</PageSubTitle>
           </Container>
           <Container cname="col-full">
             <SRLWrapper options={options}>
@@ -79,7 +80,7 @@ function Oncesonra({ airtabledata }) {
 }
 
 export async function getStaticProps() {
-  const airtabledata = await getTable('Before-After')
+  const airtabledata = await getTable('Aksesuar')
 
   return {
     props: {
@@ -89,4 +90,4 @@ export async function getStaticProps() {
   }
 }
 
-export default Oncesonra
+export default Aksesuar

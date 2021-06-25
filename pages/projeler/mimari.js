@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import NextImage from 'next/image'
 import Container from '../../components/container'
 import Header from '../../components/header'
@@ -9,6 +10,7 @@ import { options } from '../../constants/options'
 import { SRLWrapper } from 'simple-react-lightbox'
 import PageTransition from '../../components/page-transition'
 import PageTitle from '../../components/page-title'
+import PageSubTitle from '../../components/page-sub-title'
 import SiteConfig from '../../site.config'
 
 import useWindowSize from '../../hooks/useWindowSize'
@@ -23,7 +25,12 @@ function Mimari({ airtabledata }) {
       <PageTransition>
         <Layout>
           <Container cname="col-sm">
-            <PageTitle>Mimari</PageTitle>
+            <PageTitle>
+              <Link href="/projeler">
+                <a>Projeler</a>
+              </Link>
+            </PageTitle>
+            <PageSubTitle>Mimari</PageSubTitle>
           </Container>
           <Container cname="col-full">
             <SRLWrapper options={options}>

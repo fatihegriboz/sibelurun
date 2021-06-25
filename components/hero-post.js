@@ -13,7 +13,7 @@ export default function HeroPost({
 }) {
   return (
     <section>
-      <div className="mb-8 md:mb-16 rounded-2xl overflow-hidden">
+      <div className="mb-8 md:mb-16 md:rounded-2xl overflow-hidden">
         <CoverImage
           title={title}
           responsiveImage={coverImage.responsiveImage}
