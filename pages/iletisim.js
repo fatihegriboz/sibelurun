@@ -33,7 +33,7 @@ function Contact() {
                 <p className="pb-10">Süleyman Seba Cad. No:79 Maçka Beşiktaş</p>
                 <p className="pt-3 pb-6">
                   <a
-                    className="font-bold rounded-md bg-transparent text-sm hover:bg-brand-1 text-gray-700 hover:text-white py-4 px-6 border border-brand-1 hover:border-transparent font-bold font-sans hover:no-underline"
+                    className="font-bold rounded-md bg-transparent text-sm hover:bg-accent-4 hover:text-white py-4 px-6 border border-brand-1 hover:border-transparent font-bold font-sans hover:no-underline"
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://docs.google.com/forms/d/e/1FAIpQLSd5BX8aEiU4Eb6peRZ6t5B9fTwEqZTORjUCb43M23d5kVeLPw/viewform"

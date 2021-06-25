@@ -82,7 +82,7 @@ export default function Index({ subscription }) {
           <Head>
             <title>Blog | {SiteConfig.title}</title>
           </Head>
-          <Container cname="col-lg">
+          <Container cname="col-full">
             {/* <Intro /> */}
             {heroPost && (
               <HeroPost

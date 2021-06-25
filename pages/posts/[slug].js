@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import { renderMetaTags, useQuerySubscription } from 'react-datocms'
 import Container from '../../components/container'
 import Header from '../../components/header'
@@ -128,7 +129,7 @@ export default function Post({ subscription, preview }) {
               {post.title} | Blog | {SiteConfig.title}
             </title>
           </Head>
-          <Container>
+          <Container cname="col-full mb-20">
             <article>
               <PostHeader
                 title={post.title}
@@ -139,7 +140,22 @@ export default function Post({ subscription, preview }) {
               <PostBody content={post.content} />
             </article>
             <SectionSeparator />
+            <h2 className="text-center mb-8 text-2xl font-bold tracking-tighter leading-tight">
+              Son Yazılar
+            </h2>
+            <h3 className="pb-10 text-center font-serif mb-8 text-xl max-w-2xl m-auto ">
+              Mesleğime ve sektörüme yönelik güncel olayları, deneyimlerimi ve
+              ünlülerin evlerine ait yorumlarımı blog yazılarımda
+              bulabilirsiniz...
+            </h3>
             {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+            <p className="text-center mt-20 pb-5">
+              <Link href="/blog">
+                <a className="rounded-md bg-transparent text-sm hover:bg-accent-4 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
+                  YAZILARIMIN TAMAMI
+                </a>
+              </Link>
+            </p>
           </Container>
         </Layout>
       </PageTransition>

@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import SectionSeparator from '../components/section-separator'
 import NextImage from 'next/image'
 import PageTransition from '../components/page-transition'
 import { renderMetaTags, useQuerySubscription } from 'react-datocms'
@@ -171,7 +172,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                 <div className="hover-zoom-img relative" key={item.Id}>
                   {item.Photo && (
                     <>
-                      <p className="overlay-name text-2xl md:text-4xl">
+                      <p className="overlay-name text-2xl font-bold md:text-3xl">
                         {item.Name}
                       </p>
                       <NextImage
@@ -223,7 +224,31 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
           )}
           </Container> */}
 
-          <div className="blog-linear-gradient mb-20 md:ml-6 md:mr-6 md:mx-auto md:px-5 md:border-t md:border-r md:border-l md:border-accent-2 md:rounded-t-2xl overflow-hidden">
+          <div className="px-5">
+            <SectionSeparator />
+          </div>
+
+          <div className="mb-20 md:ml-6 md:mr-6 md:mx-auto md:px-5">
+            <h2 className="text-center mb-8 text-2xl font-bold tracking-tighter leading-tight">
+              Son Yazılar
+            </h2>
+            <h3 className="pb-10 text-center font-serif mb-8 text-xl max-w-2xl m-auto ">
+              Mesleğime ve sektörüme yönelik güncel olayları, deneyimlerimi ve
+              ünlülerin evlerine ait yorumlarımı blog yazılarımda
+              bulabilirsiniz...
+            </h3>
+
+            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+            <p className="text-center mt-20 pb-5">
+              <Link href="/blog">
+                <a className="rounded-md bg-transparent text-sm hover:bg-accent-4 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
+                  YAZILARIMIN TAMAMI
+                </a>
+              </Link>
+            </p>
+          </div>
+
+          {/* <div className="blog-linear-gradient mb-20 md:ml-6 md:mr-6 md:mx-auto md:px-5 md:border-t md:border-r md:border-l md:border-accent-2 md:rounded-t-2xl overflow-hidden">
             <Container>
               <h2 className="pt-10 text-center mb-8 text-2xl font-bold tracking-tighter leading-tight">
                 Son Yazılar
@@ -243,7 +268,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                 </Link>
               </p>
             </Container>
-          </div>
+          </div> */}
         </Layout>
       </PageTransition>
     </>

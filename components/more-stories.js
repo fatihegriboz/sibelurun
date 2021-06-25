@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import PostPreview from '../components/post-preview'
+import Container from './container'
 
 export default function MoreStories({ posts }) {
   return (
