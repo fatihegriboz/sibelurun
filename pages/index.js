@@ -122,7 +122,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                   />
                 </div>
 
-                <div className="px-5 md:pr-10 flex flex-col justify-center text-gray-800 font-serif text-lg border-accent-2 xs:border-t-0 md:border-t border-r border-b sm:rounded-tr-none md:rounded-tr-2xl rounded-br-2xl overflow-hidden">
+                <div className="px-5 md:pr-10 flex flex-col justify-center font-serif text-lg border-accent-2 xs:border-t-0 md:border-t border-r border-b sm:rounded-tr-none md:rounded-tr-2xl rounded-br-2xl overflow-hidden">
                   <p>
                     20 yıldır iş yaşamında faal olan Sibel Ürün Bursa’da doğdu,
                     orta öğretimini Bursa Anadolu Lisesinde tamamlayarak,
@@ -142,7 +142,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
                   </p>
                   <p className="mt-5 mb-10 text-center md:text-left">
                     <Link href="/hakkinda">
-                      <a className="rounded-md bg-transparent text-sm hover:bg-brand-1 text-gray-700 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
+                      <a className="rounded-md bg-transparent text-sm hover:bg-accent-4 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
                         DEVAMI
                       </a>
                     </Link>
@@ -152,7 +152,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             </section>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-10 md:px-5 md:py-5">
+          <div className="home-projects-grid grid md:grid-cols-2 gap-6 mb-10 md:px-5 md:py-5">
             <div className="flex flex-col justify-center items-center text-center px-10 py-10">
               <h4 className="mb-3 text-2xl font-bold">Tasarım ve Çözümler</h4>
               <p className="text-2xl font-serif">
@@ -160,7 +160,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
               </p>
               <p className="mt-10">
                 <Link href="/projeler">
-                  <a className="rounded-md bg-transparent text-sm hover:bg-brand-1 text-gray-700 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
+                  <a className="rounded-md bg-transparent text-sm hover:bg-accent-4 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
                     PROJELER
                   </a>
                 </Link>
@@ -203,7 +203,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             <MyCarousel data={airtabledataOS} />
             <p className="text-center mt-20 pb-5">
               <Link href="/projeler/once-sonra">
-                <a className="rounded-md bg-transparent text-sm hover:bg-brand-1 text-gray-700 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
+                <a className="rounded-md bg-transparent text-sm hover:bg-accent-4 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
                   TAMAMINI GÖR
                 </a>
               </Link>
@@ -223,13 +223,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
           )}
           </Container> */}
 
-          <div
-            className="mb-20 md:ml-6 md:mr-6 md:mx-auto md:px-5 md:border-t md:border-r md:border-l md:border-accent-2 md:rounded-t-2xl overflow-hidden"
-            style={{
-              background:
-                'linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(244, 241, 235,1) 100%);'
-            }}
-          >
+          <div className="blog-linear-gradient mb-20 md:ml-6 md:mr-6 md:mx-auto md:px-5 md:border-t md:border-r md:border-l md:border-accent-2 md:rounded-t-2xl overflow-hidden">
             <Container>
               <h2 className="pt-10 text-center mb-8 text-2xl font-bold tracking-tighter leading-tight">
                 Son Yazılar
@@ -243,7 +237,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
               {morePosts.length > 0 && <MoreStories posts={morePosts} />}
               <p className="text-center mt-20 pb-5">
                 <Link href="/blog">
-                  <a className="rounded-md bg-transparent text-sm hover:bg-brand-1 text-gray-700 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
+                  <a className="rounded-md bg-transparent text-sm hover:bg-accent-4 hover:text-white py-4 px-6 border border-brand-1  hover:border-transparent font-bold font-sans hover:no-underline">
                     YAZILARIMIN TAMAMI
                   </a>
                 </Link>
