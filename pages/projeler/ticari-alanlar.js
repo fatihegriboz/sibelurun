@@ -1,27 +1,24 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import NextImage from 'next/image'
 import Container from '../../components/container'
-import Header from '../../components/header'
 import Layout from '../../components/layout'
 import { getTable } from '../../lib/airtable'
-
 import { options } from '../../constants/options'
 import { SRLWrapper } from 'simple-react-lightbox'
+import Projects from '../../components/projects'
 import PageTransition from '../../components/page-transition'
 import PageTitle from '../../components/page-title'
 import SiteConfig from '../../site.config'
-import useWindowSize from '../../hooks/useWindowSize'
 import PageSubTitle from '../../components/page-sub-title'
 
 function TicariAlanlar({ airtabledata }) {
-  const { width } = useWindowSize()
-  // console.log('airtabledata:', airtabledata)
-  // console.log('airtabledata:', airtabledata[20].Category)
-  // console.log(
-  //   'Filter:',
-  //   airtabledata.filter((i) => i.Category === 'Test')
-  // )
+  const lobiler = airtabledata.filter((item) => item.Category == 'Lobiler')
+  const satisOfisleri = airtabledata.filter(
+    (item) => item.Category == 'Satis Ofisleri'
+  )
+  const sosyalTesisler = airtabledata.filter(
+    (item) => item.Category == 'Sosyal Tesisler'
+  )
 
   return (
     <>
@@ -39,139 +36,17 @@ function TicariAlanlar({ airtabledata }) {
             <PageSubTitle>Ticari Alanlar</PageSubTitle>
           </Container>
           <Container cname="col-full">
-            <p className="mt-10 pl-5">Lobiler</p>
-
+            <p className="mt-20 pl-5 font-bold">Lobiler</p>
             <SRLWrapper options={options}>
-              <div className="grid sm:grid-cols-6 gap-5 lg:gap-2">
-                {airtabledata
-                  .filter((i) => i.Category === 'Lobiler')
-                  .map((item) => {
-                    return (
-                      <div key={item.Id}>
-                        {item.Photo && (
-                          <a href={item.Photo[0].thumbnails.full.url}>
-                            {width > 768 && (
-                              <NextImage
-                                src={item.Photo[0].thumbnails.large.url}
-                                alt={item.Name}
-                                width={120}
-                                height={80}
-                                layout="responsive"
-                                objectFit="cover"
-                                placeholder="blur"
-                                blurDataURL={item.Photo[0].thumbnails.small.url}
-                                srl_gallery_image="true"
-                              />
-                            )}
-                            {width < 768 && (
-                              <NextImage
-                                src={item.Photo[0].thumbnails.large.url}
-                                alt={item.Name}
-                                width={item.Photo[0].thumbnails.large.width}
-                                height={item.Photo[0].thumbnails.large.height}
-                                layout="responsive"
-                                objectFit="cover"
-                                placeholder="blur"
-                                blurDataURL={item.Photo[0].thumbnails.small.url}
-                                srl_gallery_image="true"
-                              />
-                            )}
-                          </a>
-                        )}
-                      </div>
-                    )
-                  })}
-              </div>
+              <Projects data={lobiler} />
             </SRLWrapper>
-
-            <p className="mt-10 pl-5">Satış Ofisleri</p>
-
+            <p className="mt-20 pl-5 font-bold">Satış Ofisleri</p>
             <SRLWrapper options={options}>
-              <div className="grid sm:grid-cols-6 gap-5 lg:gap-2">
-                {airtabledata
-                  .filter((i) => i.Category === 'Satış Ofisleri')
-                  .map((item) => {
-                    return (
-                      <div key={item.Id}>
-                        {item.Photo && (
-                          <a href={item.Photo[0].thumbnails.full.url}>
-                            {width > 768 && (
-                              <NextImage
-                                src={item.Photo[0].thumbnails.large.url}
-                                alt={item.Name}
-                                width={120}
-                                height={80}
-                                layout="responsive"
-                                objectFit="cover"
-                                placeholder="blur"
-                                blurDataURL={item.Photo[0].thumbnails.small.url}
-                                srl_gallery_image="true"
-                              />
-                            )}
-                            {width < 768 && (
-                              <NextImage
-                                src={item.Photo[0].thumbnails.large.url}
-                                alt={item.Name}
-                                width={item.Photo[0].thumbnails.large.width}
-                                height={item.Photo[0].thumbnails.large.height}
-                                layout="responsive"
-                                objectFit="cover"
-                                placeholder="blur"
-                                blurDataURL={item.Photo[0].thumbnails.small.url}
-                                srl_gallery_image="true"
-                              />
-                            )}
-                          </a>
-                        )}
-                      </div>
-                    )
-                  })}
-              </div>
+              <Projects data={satisOfisleri} />
             </SRLWrapper>
-
-            <p className="mt-10 pl-5">Sosyal Tesisler</p>
-
+            <p className="mt-20 pl-5 font-bold">Sosyal Tesisler</p>
             <SRLWrapper options={options}>
-              <div className="grid sm:grid-cols-6 gap-5 lg:gap-2">
-                {airtabledata
-                  .filter((i) => i.Category === 'Sosyal Tesisler')
-                  .map((item) => {
-                    return (
-                      <div key={item.Id}>
-                        {item.Photo && (
-                          <a href={item.Photo[0].thumbnails.full.url}>
-                            {width > 768 && (
-                              <NextImage
-                                src={item.Photo[0].thumbnails.large.url}
-                                alt={item.Name}
-                                width={120}
-                                height={80}
-                                layout="responsive"
-                                objectFit="cover"
-                                placeholder="blur"
-                                blurDataURL={item.Photo[0].thumbnails.small.url}
-                                srl_gallery_image="true"
-                              />
-                            )}
-                            {width < 768 && (
-                              <NextImage
-                                src={item.Photo[0].thumbnails.large.url}
-                                alt={item.Name}
-                                width={item.Photo[0].thumbnails.large.width}
-                                height={item.Photo[0].thumbnails.large.height}
-                                layout="responsive"
-                                objectFit="cover"
-                                placeholder="blur"
-                                blurDataURL={item.Photo[0].thumbnails.small.url}
-                                srl_gallery_image="true"
-                              />
-                            )}
-                          </a>
-                        )}
-                      </div>
-                    )
-                  })}
-              </div>
+              <Projects data={sosyalTesisler} />
             </SRLWrapper>
           </Container>
         </Layout>

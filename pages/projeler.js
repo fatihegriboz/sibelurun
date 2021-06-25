@@ -2,16 +2,13 @@ import Head from 'next/head'
 import Link from 'next/link'
 import NextImage from 'next/image'
 import Container from '../components/container'
-
 import Layout from '../components/layout'
 import { getTable } from '../lib/airtableOrder'
-
 import PageTransition from '../components/page-transition'
 import PageTitle from '../components/page-title'
 import SiteConfig from '../site.config'
 
 function Projeler({ airtabledata }) {
-  // console.log('airtabledata:', airtabledata)
   return (
     <>
       <Head>
