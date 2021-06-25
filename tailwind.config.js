@@ -45,7 +45,9 @@ module.exports = {
     }
   },
   variants: {
-    extend: {}
+    extend: {
+      filter: ['hover', 'focus']
+    }
   },
   plugins: [require('@tailwindcss/typography')]
 }

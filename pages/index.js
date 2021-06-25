@@ -14,43 +14,10 @@ import MoreStories from '../components/more-stories'
 import { request } from '../lib/datocms'
 import { metaTagsFragment, responsiveImageFragment } from '../lib/fragments'
 
-// import CarouselNO from 'react-multi-carousel'
-// import 'react-multi-carousel/lib/styles.css'
-
-// import Carousel from 'nuka-carousel'
-
 import dynamic from 'next/dynamic'
 const MyCarousel = dynamic(() => import('../components/MyCarousel'), {
   ssr: false
 })
-
-// const MyCarousel = dynamic(() => import('../components/MyCarousel'), {
-//   ssr: false
-// })
-
-// const { default: MyCarousel } = dynamic(
-//   () => import('../components/MyCarousel'),
-//   { ssr: false }
-// )
-
-// import MyCarousel from '../components/MyCarousel'
-
-//react-alice-carousel
-// const items = [
-//   <img
-//     src="https://images.unsplash.com/photo-1611152171907-886a565484b5"
-//     onDragStart={handleDragStart}
-//   />,
-//   <img
-//     src="https://images.unsplash.com/photo-1610972504483-2a41daae0a33"
-//     onDragStart={handleDragStart}
-//   />,
-//   <img
-//     src="https://images.unsplash.com/photo-1610972504552-89d5539a48fe"
-//     onDragStart={handleDragStart}
-//   />
-// ]
-//
 
 export const getStaticProps = async ({ preview }) => {
   const airtabledata = await getTable('Home Slider Projeler')
@@ -267,7 +234,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
               <h2 className="pt-10 text-center mb-8 text-2xl font-bold tracking-tighter leading-tight">
                 Son Yazılar
               </h2>
-              <h3 className="pb-10 text-center font-serif mb-8 text-2xl max-w-2xl m-auto ">
+              <h3 className="pb-10 text-center font-serif mb-8 text-xl max-w-2xl m-auto ">
                 Mesleğime ve sektörüme yönelik güncel olayları, deneyimlerimi ve
                 ünlülerin evlerine ait yorumlarımı blog yazılarımda
                 bulabilirsiniz...

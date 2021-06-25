@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import NextImage from 'next/image'
 import Container from '../../components/container'
 import Header from '../../components/header'
