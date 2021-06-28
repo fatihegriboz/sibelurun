@@ -83,7 +83,7 @@ export default function Index({ subscription }) {
             <title>Blog | {SiteConfig.title}</title>
           </Head>
           <div className="col-full">
-            <p className="pt-10 pb-10 md:px-10 text-center font-serif mb-8 text-xl md:text-2xl max-w-3xl m-auto ">
+            <p className="px-5 pt-10 pb-10 md:px-10 text-center font-serif mb-8 text-xl md:text-2xl max-w-3xl m-auto ">
               Mesleğime ve sektörüme yönelik güncel olayları, deneyimlerimi ve
               ünlülerin evlerine ait yorumlarımı blog yazılarımda
               bulabilirsiniz...<br></br>
@@ -104,7 +104,7 @@ export default function Index({ subscription }) {
               />
             )}
             <div className="col-full">
-              <p className="pb-10 text-center font-serif mb-8 text-2xl max-w-3xl m-auto ">
+              <p className="px-5 pb-10 text-center font-serif mb-8 text-2xl max-w-3xl m-auto ">
                 " İyi bir projenin varolması, sevgi dolu ve insani bir vizyon
                 yaklaşımı ile kaçınılmazdır... "
               </p>

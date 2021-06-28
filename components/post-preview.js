@@ -20,16 +20,18 @@ export default function PostPreview({
           responsiveImage={coverImage.responsiveImage}
         />
       </div>
-      <h3 className="text-xl font-bold leading-snug">
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a className="hover:underline">{title}</a>
-        </Link>
-      </h3>
-      <div className="text-sm mb-4">
-        <Date dateString={date} />
+      <div className="px-5">
+        <h3 className="text-xl font-bold leading-snug">
+          <Link as={`/posts/${slug}`} href="/posts/[slug]">
+            <a className="hover:underline">{title}</a>
+          </Link>
+        </h3>
+        <div className="text-sm mb-4">
+          <Date dateString={date} />
+        </div>
+        <p className="text-lg">{excerpt}</p>
+        {/* <Avatar name={author.name} picture={author.picture} /> */}
       </div>
-      <p className="text-lg">{excerpt}</p>
-      {/* <Avatar name={author.name} picture={author.picture} /> */}
     </div>
   )
 }
