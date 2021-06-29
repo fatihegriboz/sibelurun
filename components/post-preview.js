@@ -29,7 +29,7 @@ export default function PostPreview({
         <div className="text-sm mb-4">
           <Date dateString={date} />
         </div>
-        <p className="text-lg">{excerpt}</p>
+        <p className="text-lg font-serif">{excerpt}</p>
         {/* <Avatar name={author.name} picture={author.picture} /> */}
       </div>
     </div>
