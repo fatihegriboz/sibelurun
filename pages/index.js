@@ -232,7 +232,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             <h2 className="text-center mb-8 text-2xl font-bold tracking-tighter leading-tight">
               Son Yazılar
             </h2>
-            <h3 className="pb-10 text-center font-serif mb-8 text-xl max-w-2xl m-auto ">
+            <h3 className="px-5 pb-10 text-center font-serif mb-8 text-xl max-w-2xl m-auto ">
               Mesleğime ve sektörüme yönelik güncel olayları, deneyimlerimi ve
               ünlülerin evlerine ait yorumlarımı blog yazılarımda
               bulabilirsiniz...
