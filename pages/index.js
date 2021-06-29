@@ -228,7 +228,7 @@ export default function Index({ subscription, airtabledata, airtabledataOS }) {
             <SectionSeparator />
           </div>
 
-          <div className="px-5 mb-20 md:ml-6 md:mr-6 md:mx-auto">
+          <div className="mb-20 md:ml-6 md:mr-6 md:mx-auto">
             <h2 className="text-center mb-8 text-2xl font-bold tracking-tighter leading-tight">
               Son Yazılar
             </h2>
