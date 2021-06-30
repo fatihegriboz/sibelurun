@@ -4,7 +4,7 @@ import Header from '../components/header'
 export default function Layout({ preview, children }) {
   return (
     <>
-      <div className="">
+      <div className="site-header">
         {/* col-sm */}
         <Header />
       </div>

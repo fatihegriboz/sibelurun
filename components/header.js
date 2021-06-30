@@ -13,45 +13,36 @@ export default function Header() {
   }
 
   return (
-    <div className="flex">
-      <div className="sitelogo">
-        <Link href="/">
-          <a>
-            {/* <NextImage
+    <>
+      <div className="flex">
+        <div className="sitelogo">
+          <Link href="/">
+            <a>
+              {/* <NextImage
               src="/static/images/sibelurun-logo.png"
               alt="Sibel Ürün"
               width={99}
               height={99}
             /> */}
-            <NextImage
-              src="/static/images/sibelurun-logo-text.png"
-              alt="Sibel Ürün"
-              width={160}
-              height={101}
-            />
-          </a>
-        </Link>
+              <NextImage
+                src="/static/images/sibelurun-logo-text.png"
+                alt="Sibel Ürün"
+                width={160}
+                height={101}
+              />
+            </a>
+          </Link>
+        </div>
+        <div className="hamburger" onClick={toggleHamburger}>
+          <Hamburger isOpen={hamburgerOpen} />
+        </div>
       </div>
-      <div className="navigation">
-        <div className="ul py-10 flex flex-col lg:flex-row justify-around">
-          <div>
-            {/* <NextImage
-              src="/static/images/sibelurun-logo.png"
-              alt="Sibel Ürün"
-              width={99}
-              height={99}
-            /> */}
-            <h3 className="text-xl font-bold mb-5">Adres.</h3>
-            <p>
-              <span className="block">Süleyman Seba Cad. No:79</span>
-              <span className="block">Maçka Beşiktaş</span>
-              <span className="block mt-5">+90(212) 951 05 75</span>
-              <span className="block">sibel@sibelurun.com</span>
-            </p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-5">Menu.</h3>
-            <ul>
+      <div className="navigation flex flex-col">
+        <div className="grid md:grid-cols-3">
+          <div></div>
+          <div className="px-5">
+            <h3 className="text-lg font-bold mb-5">Menu.</h3>
+            <ul className="font-serif text-lg">
               <li>
                 <Link href="/">
                   <a>Anasayfa</a>
@@ -74,9 +65,9 @@ export default function Header() {
               </li>
             </ul>
           </div>
-          <div>
-            <h3 className="text-xl font-bold mb-5">Projeler.</h3>
-            <ul>
+          <div className="px-5">
+            <h3 className="text-lg font-bold mb-5">Projeler.</h3>
+            <ul className="font-serif text-lg">
               <li>
                 <Link href="/projeler/evler">
                   <a>Evler</a>
@@ -110,35 +101,70 @@ export default function Header() {
               </li>
             </ul>
           </div>
-          <div>
-            <h3 className="text-xl font-bold mb-5">Güncel kalın.</h3>
-            <Social />
-          </div>
         </div>
 
-        <div className="hamburger" onClick={toggleHamburger}>
-          <Hamburger isOpen={hamburgerOpen} />
+        <div className="mx-5 hidden md:block">
+          <div className="footer-bottom grid md:grid-cols-3 border-accent-4 border-t border-opacity-10">
+            <div className="px-5 py-5">
+              <p className="text-md font-bold">Konuşalım.</p>
+              <p className="font-serif">
+                <span className="block">+90(212) 951 05 75</span>
+                <span className="block">sibel@sibelurun.com</span>
+              </p>
+            </div>
+            <div className="px-5 py-5 border-accent-4 border-r border-l border-opacity-10">
+              <p className="text-md font-bold">Ziyaret edin.</p>
+              <p className="font-serif">
+                <span className="block">Süleyman Seba Cad. No:79</span>
+                <span className="block">Maçka Beşiktaş</span>
+              </p>
+            </div>
+            <div className="px-5 py-5">
+              <p className="text-md font-bold">Güncel kalın.</p>
+              <Social />
+            </div>
+          </div>
         </div>
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         html,
         body {
-          border-top: ${hamburgerOpen ? '10px solid red' : '10px solid blue '};
+          overflow: ${hamburgerOpen ? 'hidden' : 'unset'};
+        }
+        .footer-bottom {
+          position: absolute;
+          bottom: 0px;
+          width: calc(100% - 2.5rem);
         }
         .navigation {
+          display: ${hamburgerOpen ? 'flex' : 'none'};
+          background-color: #f4f1eb;
+          padding-top: 60px;
           width: 100%;
-          height: 50px;
+          height: calc(100vh + 5px);
+          position: absolute;
+          z-index: 8;
+          top: 0px;
+          left: 0px;
         }
-
-        .navigation .ul {
-          display: flex;
-          flex-wrap: wrap;
-          float: right;
-          margin: 0px;
-          padding: 200px 0 0 0;
-          overflow: hidden;
+        @media screen and (max-height: 440px) {
+          .navigation {
+            overflow-x: scroll;
+          }
+          .footer-bottom {
+            position: static;
+            margin-top: 20px;
+          }
         }
+        // .navigation .ul {
+        //   display: flex;
+        //   flex-wrap: wrap;
+        //   float: right;
+        //   margin: 0px;
+        //   padding: 200px 0 0 0;
+        //   overflow: hidden;
+        // }
         .hamburger {
           display: fixed;
           padding-top: 10px;
@@ -150,14 +176,14 @@ export default function Header() {
         }
 
         .navigation .ul {
-          display: ${hamburgerOpen ? 'flex' : 'none'};
-          background-color: #e2e1df;
-          height: 100vh;
-          width: 100vw;
-          position: absolute;
-          z-index: 8;
-          top: 0px;
-          left: 0px;
+          // display: ${hamburgerOpen ? 'flex' : 'none'};
+          // background-color: #f7f5f0;
+          // height: 100vh;
+          // width: 100vw;
+          // position: absolute;
+          // z-index: 8;
+          // top: 0px;
+          // left: 0px;
         }
         .sitelogo {
           padding-top: 15px;
@@ -189,6 +215,6 @@ export default function Header() {
         //   }
         // }
       `}</style>
-    </div>
+    </>
   )
 }
